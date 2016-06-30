@@ -1,7 +1,11 @@
 language: node_js
 node_js:
-  - 4.1
+  - "node"
+  - "6"
+  - "5"
+  - "4"
 before_script:
+  - npm run-script test-vulnerabilities
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
