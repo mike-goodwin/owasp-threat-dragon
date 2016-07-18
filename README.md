@@ -45,27 +45,38 @@ Once the core code is installed, the following steps should be performed to enab
 - **GitHub:** Client ID, Client Secret and Session Signing Key
 - **Azure Table Storage:** Account Name and Storage Access Key
 
-Start by setting the GitHub environment variables on the server by using;    
+Start by setting the GitHub environment variables on the server by using the following in OSX or Linux;   
 
-> `export GITHUB_CLIENT_ID=ABCABCABCABC`  
-> `export GITHUB_CLIENT_SECRET=DEFDEFDEFDEF`  
-> `export SESSION_SIGNING_KEY=GHIGHIGHIGHI` 
-> 
-> Once a user is signed into the application, their session information contains an OAuth access token with 
-> write access to their GitHub repos. For security, this is encrypted before storage in the session. The 
-> session encryption supports multiple keys so that they can be expired without any interruption to the 
-> running application. The primary key is always used for encryption. Retired keys can be kept available for 
-> decrypting existing sessions. Once all sessions are using the new primary key (typically this will be around > 60 minutes maximum), the old one can be safely removed. The keys are stored as a JSON string in  the 
-> `SESSION_ENCRYPTION_KEYS` environment variable. For example:
-> 
-> `[{\"isPrimary\": true, \"id\": 0, \"value\": \"abcdef\"}, {\"isPrimary\": false, \"id\": 1, \"value\": \"ghijkl\"}]`
+`export GITHUB_CLIENT_ID=ABCABCABCABC`  
+`export GITHUB_CLIENT_SECRET=DEFDEFDEFDEF`  
+`export SESSION_SIGNING_KEY=GHIGHIGHIGHI` 
 
-As described earlier in this document, along with GitHub, Threat Dragon also uses Azure Table Storage for the session store via [connect-azuretables](https://www.npmjs.com/package/connect-azuretables). To make this work, the following Azure environment variables need to be configured in addition to the GitHub ones.  Perform the following on the server;
+Or the following in Windows;
+
+`set GITHUB_CLIENT_ID=ABCABCABCABC`
+`set GITHUB_CLIENT_SECRET=DEFDEFDEFDEF`
+`set SESSION_SIGNING_KEY=GHIGHIGHIGHI`
  
-> `export AZURE_STORAGE_ACCOUNT=JKLJKLJKLJKL`  
-> `export AZURE_STORAGE_ACCESS_KEY=MNOMNOMNOMNO` 
-> 
-> See the [connect-azuretables](https://www.npmjs.com/package/connect-azuretables) documentation for more options.
+Once a user is signed into the application, their session information contains an OAuth access token with 
+write access to their GitHub repos. For security, this is encrypted before storage in the session. The 
+session encryption supports multiple keys so that they can be expired without any interruption to the 
+running application. The primary key is always used for encryption. Retired keys can be kept available for 
+decrypting existing sessions. Once all sessions are using the new primary key (typically this will be around > 60 minutes maximum), the old one can be safely removed. The keys are stored as a JSON string in  the 
+`SESSION_ENCRYPTION_KEYS` environment variable. For example:
+ 
+`[{\"isPrimary\": true, \"id\": 0, \"value\": \"abcdef\"}, {\"isPrimary\": false, \"id\": 1, \"value\": \"ghijkl\"}]`
+
+As described earlier in this document, along with GitHub, Threat Dragon also uses Azure Table Storage for the session store via [connect-azuretables](https://www.npmjs.com/package/connect-azuretables). To make this work, the following Azure environment variables need to be configured in addition to the GitHub ones.  Perform the following on the server (OSX/Linux);
+ 
+`export AZURE_STORAGE_ACCOUNT=JKLJKLJKLJKL`  
+`export AZURE_STORAGE_ACCESS_KEY=MNOMNOMNOMNO` 
+
+Or if on Windows;
+
+`set AZURE_STORAGE_ACCOUNT=JKLJKLJKLJKL`
+`set AZURE_STORAGE_ACCESS_KEY=MNOMNOMNOMNO`
+
+See the [connect-azuretables](https://www.npmjs.com/package/connect-azuretables) documentation for more options.
 
 **For Development and Proof of Concept Scenarios Only:** *If you don't want to use Azure Table Storage you 
 can set the `SESSION_STORAGE`environment variale to `local`. Threat Dragon will then use the express-session in-memory session store. As [mentioned in the express-session docs](https://github.com/expressjs/session) 
@@ -79,9 +90,9 @@ Finally, by default, Threat Dragon will set the `secure` flag on cookies. To ove
 
 Once your environment variables are configured, start the node web server by running the following:
 
-> `npm start`
-> 
-> If you then browse to `http://localhost:3000` you should see the running application.
+`npm start`
+
+If you then browse to `http://localhost:3000` you should see the running application.
 
 ---
 
