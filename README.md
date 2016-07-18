@@ -53,9 +53,9 @@ Start by setting the GitHub environment variables on the server by using the fol
 
 Or the following in Windows;
 
-`set GITHUB_CLIENT_ID=ABCABCABCABC`
-`set GITHUB_CLIENT_SECRET=DEFDEFDEFDEF`
-`set SESSION_SIGNING_KEY=GHIGHIGHIGHI`
+`set GITHUB_CLIENT_ID=ABCABCABCABC`  
+`set GITHUB_CLIENT_SECRET=DEFDEFDEFDEF`  
+`set SESSION_SIGNING_KEY=GHIGHIGHIGHI`  
  
 Once a user is signed into the application, their session information contains an OAuth access token with 
 write access to their GitHub repos. For security, this is encrypted before storage in the session. The 
@@ -73,8 +73,8 @@ As described earlier in this document, along with GitHub, Threat Dragon also use
 
 Or if on Windows;
 
-`set AZURE_STORAGE_ACCOUNT=JKLJKLJKLJKL`
-`set AZURE_STORAGE_ACCESS_KEY=MNOMNOMNOMNO`
+`set AZURE_STORAGE_ACCOUNT=JKLJKLJKLJKL`  
+`set AZURE_STORAGE_ACCESS_KEY=MNOMNOMNOMNO`  
 
 See the [connect-azuretables](https://www.npmjs.com/package/connect-azuretables) documentation for more options.
 
