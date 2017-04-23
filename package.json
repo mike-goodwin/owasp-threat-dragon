@@ -55,7 +55,7 @@
     "express-session": "1.15.1",
     "font-awesome": "4.7.0",
     "helmet": "3.5.0",
-    "jointjs": "1.0.3",
+    "jointjs": "1.1.0",
     "jquery": "3.0.0",
     "lodash": "4.13.1",
     "morgan": "1.8.1",
