@@ -6,3 +6,6 @@ patch:
   'npm:uglify-js:20151024':
     - nools > uglify-js:
         patched: '2017-03-14T00:14:57.796Z'
+  'npm:ms:20170412':
+    - morgan > debug > ms:
+        patched: '2017-05-23T00:34:05.881Z'
