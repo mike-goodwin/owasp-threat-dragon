@@ -44,7 +44,7 @@
     "angular-xeditable": "0.6.0",
     "body-parser": "1.17.1",
     "bunyan": "1.8.8",
-    "connect-azuretables": "1.0.17",
+    "connect-azuretables": "1.0.18",
     "connect-ensure-login": "0.1.1",
     "cookie-parser": "1.4.3",
     "csurf": "1.9.0",
