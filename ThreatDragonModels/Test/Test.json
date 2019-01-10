@@ -162,6 +162,40 @@
                   "class": "element-text hasOpenThreats isInScope"
                 }
               }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "5a9c7b39-9132-4abb-8d87-564f8ded0a1c"
+              },
+              "target": {
+                "id": "a679a17a-a631-4cae-a5ad-c88c310a3769"
+              },
+              "vertices": [],
+              "id": "92cd59d1-1510-4bd7-a965-58576b9ade00",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 2",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 3,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             }
           ]
         },
