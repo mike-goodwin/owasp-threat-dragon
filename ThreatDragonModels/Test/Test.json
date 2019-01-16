@@ -203,6 +203,11 @@
           "height": 590,
           "width": 790
         }
+      },
+      {
+        "title": "bbb",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 1
       }
     ]
   }
