@@ -146,7 +146,7 @@
                   "ruleId": "c1377855-ea20-4c97-8861-f95c364fb8d2",
                   "title": "Generic elevation threat",
                   "type": "Elevation of privilege",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "description": "A generic elevation threat"
                 }
