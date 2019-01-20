@@ -107,7 +107,7 @@
                   "title": "Generic spoofing threat",
                   "type": "Spoofing",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Low",
                   "description": "A generic spoofing threat 2"
                 },
                 {
