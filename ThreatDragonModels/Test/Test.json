@@ -108,7 +108,7 @@
                   "type": "Spoofing",
                   "status": "Open",
                   "severity": "Medium",
-                  "description": "A generic spoofing threat"
+                  "description": "A generic spoofing threat 2"
                 },
                 {
                   "ruleId": "4adaa48a-0345-4533-a189-64c98c4420dd",
@@ -198,10 +198,6 @@
               }
             }
           ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
         }
       },
       {
