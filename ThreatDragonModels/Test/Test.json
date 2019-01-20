@@ -47,7 +47,7 @@
                   "title": "Generic repudiation threat",
                   "type": "Repudiation",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "description": "A generic repudiation threat"
                 },
                 {
