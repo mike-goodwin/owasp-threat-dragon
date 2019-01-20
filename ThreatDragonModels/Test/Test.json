@@ -147,7 +147,7 @@
                   "title": "Generic elevation threat",
                   "type": "Elevation of privilege",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "description": "A generic elevation threat"
                 }
               ],
