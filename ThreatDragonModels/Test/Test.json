@@ -148,7 +148,8 @@
                   "type": "Elevation of privilege",
                   "status": "Mitigated",
                   "severity": "High",
-                  "description": "A generic elevation threat"
+                  "description": "A generic elevation threat",
+                  "mitigation": "Test mitigation"
                 },
                 {
                   "status": "Open",
