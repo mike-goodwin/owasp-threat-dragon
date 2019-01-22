@@ -149,6 +149,10 @@
                   "status": "Mitigated",
                   "severity": "High",
                   "description": "A generic elevation threat"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium"
                 }
               ],
               "attrs": {
