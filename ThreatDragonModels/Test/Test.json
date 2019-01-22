@@ -154,6 +154,10 @@
                 {
                   "status": "Open",
                   "severity": "Medium"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium"
                 }
               ],
               "attrs": {
