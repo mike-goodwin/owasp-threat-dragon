@@ -165,6 +165,14 @@
                 },
                 {
                   "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "title": "hgjhjh",
+                  "description": "kkjkjk",
+                  "mitigation": "lklk"
+                },
+                {
+                  "status": "Open",
                   "severity": "Medium"
                 }
               ],
