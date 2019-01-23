@@ -153,30 +153,6 @@
                 },
                 {
                   "status": "Open",
-                  "severity": "Medium"
-                },
-                {
-                  "status": "Open",
-                  "severity": "Medium"
-                },
-                {
-                  "status": "Open",
-                  "severity": "Medium"
-                },
-                {
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Spoofing",
-                  "title": "hgjhjh",
-                  "description": "kkjkjk",
-                  "mitigation": "lklk"
-                },
-                {
-                  "status": "Open",
-                  "severity": "Medium"
-                },
-                {
-                  "status": "Open",
                   "severity": "Medium",
                   "title": "Test Title",
                   "type": "Tampering",
@@ -248,7 +224,7 @@
               "angle": 0,
               "id": "69fdc002-85d9-4b65-b0c2-89fe10acc4ac",
               "z": 4,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "ruleId": "1.6",
@@ -262,13 +238,13 @@
               ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "actor 3"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -324,7 +300,7 @@
               "angle": 0,
               "id": "3069702c-336a-4378-a62c-fca72a2bcb97",
               "z": 6,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "ruleId": "1.6",
@@ -338,13 +314,13 @@
               ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "actor 5"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
