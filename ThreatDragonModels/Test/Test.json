@@ -533,6 +533,14 @@
                   "type": "Denial of service",
                   "description": "An attacker could generate a malicious message that the Background Worker cannot process",
                   "mitigation": "Implement a poison message queue where messages are places after a fixed number of retries."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Poison messages 2",
+                  "type": "Denial of service",
+                  "description": "An attacker could generate a malicious message that the Background Worker cannot process.",
+                  "mitigation": "Validate the content of all messages, before processing. Reject any message that have invalid content and log the rejection. Do not log the malicious content - instead, log a description of the error."
                 }
               ],
               "attrs": {
