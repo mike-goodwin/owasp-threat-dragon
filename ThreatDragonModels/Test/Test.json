@@ -387,11 +387,11 @@
               "hasOpenThreats": false,
               "threats": [
                 {
-                  "status": "Open",
-                  "severity": "High",
+                  "status": "Mitigated",
+                  "severity": "Low",
                   "title": "Test Title",
                   "type": "Spoofing",
-                  "description": "Test Description",
+                  "description": "Test Description Edited",
                   "mitigation": "Test Mitigations"
                 }
               ],
