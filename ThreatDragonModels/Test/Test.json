@@ -657,13 +657,23 @@
                 }
               ],
               "z": 8,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "Man in the middle attack",
+                  "type": "Information disclosure",
+                  "description": "An attacker could intercept the DB queries in transit and obtain sensitive information, such as DB credentials, query parameters or query results (is unlikely since the data flow is over a private network).",
+                  "mitigation": "Enforce an encrypted connection at the DB server"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -818,6 +828,7 @@
               "z": 12,
               "hasOpenThreats": false,
               "outOfScope": true,
+              "reasonOutOfScope": "The data flow represents a read from the file system",
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
