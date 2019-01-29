@@ -618,14 +618,25 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
+              "threats": [
+                {
+                  "ruleId": "6.4",
+                  "title": "Improper Input Validation",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program. When software does not validate input properly, an attacker is able to craft the input in a form that is not expected by the rest of the application. This will lead to parts of the system receiving unintended input, which may result in altered control flow, arbitrary control of a resource, or arbitrary code execution.[25]",
+                  "mitigation": "Use an input validation framework such as Struts or the OWASP ESAPI Validation API.  If you use Struts, be mindful of Struts Validation ProblemsUnderstand all the potential areas where untrusted inputs can enter your software: parameters or arguments, cookies, anything read from the network, environment variables, reverse DNS lookups, query results, request headers, URL components, e-mail, files, filenames, databases, and any external systems that provide data to the application.  Remember that such inputs may be obtained indirectly through API calls. Assume all input is malicious.  Use an \"accept known good\" input validation strategy, i. e. , use a whitelist of acceptable inputs that strictly conform to specifications.  Reject any input that does not strictly conform to specifications or transform it into something that does.  When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules.  As an example of business rule logic, \"boat\" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as \"red\" or \"blue. \" Do not rely exclusively on looking for malicious or malformed inputs (i. e. , do not rely on a blacklist).  A blacklist is likely to miss at least one undesirable input, especially if the code\\s environment changes.  This can give attackers enough room to bypass the intended validation.  However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright. For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid client-side enforcement of server-side securityAttackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely.  Then, these modified values would be submitted to the server. Use dynamic tools and techniques that interact with the software using large test suites with many diverse inputs, such as fuzz testing (fuzzing), robustness testing, and fault injection. Use tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record and modify an active session[25]"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -710,14 +721,34 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
+              "threats": [
+                {
+                  "ruleId": "8.9",
+                  "title": "Broken/Insecure Cryptography",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "This threat is cause when an adversary has physical access to data that has been encrypted improperly, or mobile malware acting on an adversary's behalf. This can be done in several ways such as decryption access to the device or network traffic capture, or malicious apps on the device with access to the encrypted data Hello.",
+                  "mitigation": "To mitigate this threat, avoid using algorithms or protocols that are unsecure such as RC2, MD4, MD5 and SHA1.  A stronger cryptographic algorithm that is widely known to be secure should be used.  Currently, AES is one of the most secure encryption algorithms and is recommended to be used.   [33] [34] [52]"
+                },
+                {
+                  "ruleId": "8.16",
+                  "title": "Improper Session Handling",
+                  "type": "Spoofing",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Anyone or any mobile app with access to HTTP/S traffic, cookie data, etc.  Possible attack vectors include physical access to the device, and network traffic capture, or malware on the mobile device. Essentially an adversary that has access to the session tokens can impersonate the user by submitting the token to the backend server for any sensitive transactions such as credit card payments or health information like EKG results sent to a doctor. [59]",
+                  "mitigation": "Validate sessions on the backend by ensuring all session invalidation events are executed on the server side and not just on the mobile app. Add adequate timeout protection to prevent the malicious potential for an unauthorized user to gain access to an existing session and assume the role of that user.  Timeout periods vary accordingly based on the application, but some good guidelines are: 15 minutes for high security apps, 30 minutes for medium security apps, and 1 hour for low security apps. Properly reset cookies during authentication state changes, by destroying sessions on the server side and making sure that the cookies presented as a part of the previous sessions are no longer acceptedIn addition to properly invalidating tokens on the server side during key application events, make sure tokens are generated properly by using well-established and industry standard methods of creating tokens.  Visit the following websites for more details: https://www. pcisecuritystandards. org/documents/Tokenization_Product_Security_Guidelines. pdf and https://tools. ietf. org/html/rfc7519 for JSON Web Token (JWT) and https://www. ietf. org/rfc/rfc6750. txt for Bearer Token Usage[59]"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -750,14 +781,34 @@
                 }
               ],
               "z": 10,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
+              "threats": [
+                {
+                  "ruleId": "6.2",
+                  "title": "Expression Language Injection",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Server-side code injection vulnerabilities arise when an application incorporates user-controllable data into a string that is dynamically evaluated by a code interpreter. If the user data is not strictly validated, an attacker can use crafted input to modify the code to be executed and inject arbitrary code that will be executed by the server. Server-side code injection vulnerabilities are usually very serious and lead to complete compromise of the application's data and functionality, and often of the server that is hosting the application. It may also be possible to use the server as a platform for further attacks against other systems.[23]",
+                  "mitigation": "Whenever possible, applications should avoid incorporating user-controllable data into dynamically evaluated code.  In almost every situation, there are safer alternative methods of implementing application functions, which cannot be manipulated to inject arbitrary code into the server\\s processing. If it is considered unavoidable to incorporate user-supplied data into dynamically evaluated code, then the data should be strictly validated.  Ideally, a whitelist of specific accepted values should be used.  Otherwise, only short alphanumeric strings should be accepted.  Input containing any other data, including any conceivable code metacharacters, should be rejected. [23]"
+                },
+                {
+                  "ruleId": "6.4",
+                  "title": "Improper Input Validation",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program. When software does not validate input properly, an attacker is able to craft the input in a form that is not expected by the rest of the application. This will lead to parts of the system receiving unintended input, which may result in altered control flow, arbitrary control of a resource, or arbitrary code execution.[25]",
+                  "mitigation": "Use an input validation framework such as Struts or the OWASP ESAPI Validation API.  If you use Struts, be mindful of Struts Validation ProblemsUnderstand all the potential areas where untrusted inputs can enter your software: parameters or arguments, cookies, anything read from the network, environment variables, reverse DNS lookups, query results, request headers, URL components, e-mail, files, filenames, databases, and any external systems that provide data to the application.  Remember that such inputs may be obtained indirectly through API calls. Assume all input is malicious.  Use an \"accept known good\" input validation strategy, i. e. , use a whitelist of acceptable inputs that strictly conform to specifications.  Reject any input that does not strictly conform to specifications or transform it into something that does.  When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules.  As an example of business rule logic, \"boat\" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as \"red\" or \"blue. \" Do not rely exclusively on looking for malicious or malformed inputs (i. e. , do not rely on a blacklist).  A blacklist is likely to miss at least one undesirable input, especially if the code\\s environment changes.  This can give attackers enough room to bypass the intended validation.  However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright. For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid client-side enforcement of server-side securityAttackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely.  Then, these modified values would be submitted to the server. Use dynamic tools and techniques that interact with the software using large test suites with many diverse inputs, such as fuzz testing (fuzzing), robustness testing, and fault injection. Use tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record and modify an active session[25]"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -927,15 +978,53 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
+              "threats": [
+                {
+                  "ruleId": "3.6",
+                  "title": "Hard-coded Cryptographic Key",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The use of a hard-coded cryptographic key tremendously increases the possibility that encrypted data may be recovered.Authentication: If hard-coded cryptographic keys are used, it is almost certain that malicious users will gain access through the account in question.",
+                  "mitigation": "To mitigate against this threat, this practice of hard coding the cryptographic key should be avoided to avoid exposing the cryptographic key to a potential adversary for exploitation [32]"
+                },
+                {
+                  "ruleId": "3.7",
+                  "title": "Faulty Cryptographic Algorithm",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Attempting to create non-standard and non-tested algorithms, using weak algorithms, or applying algorithms incorrectly will pose a high weakness to data that is meant to be secure.",
+                  "mitigation": "To mitigate this threat, a stronger cryptographic algorithm that is widely known to be secure should be used.  Currently, AES is one of the most secure encryption algorithms and is recommended to be used.   [33] [34]Environment (Platform Vulnerabilities)"
+                },
+                {
+                  "ruleId": "4.2",
+                  "title": "Insecure Transport",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The application configuration should ensure that SSL is used for all access-controlled pages.If an application uses SSL to guarantee confidential communication with client browsers, the application configuration should make it impossible to view any access-controlled page without SSL. However, it is not an uncommon problem that the configuration of the application fails to enforce the use of SSL on pages that contain sensitive data.There are three common ways for SSL to be bypassed:A user manually enters the URL and types \"HTTP\" rather than \"HTTPS\".Attackers intentionally send a user to an insecure URL.A programmer erroneously creates a relative link to a page in the application, failing to switch from HTTP to HTTPS. (This is particularly easy to do when the link moves between public and secured areas on a web site.)",
+                  "mitigation": "The first and foremost control that needs to be applied is to check for a lack of transport encryption.  This can be done by:Reviewing network traffic of the device, its mobile application and any cloud connections to determine if any information is passed in clear textReviewing the use of SSL or TLS to ensure it is up to date and properly implementedReviewing the use of any encryption protocols to ensure they are recommended and acceptedIn order to ensure enough transport encryption:Ensuring data is encrypted using protocols such as SSL and TLS while transiting networks. Ensuring other industry standard encryption techniques are utilized to protect data during transport if SSL or TLS are not available. Ensuring only accepted encryption standards are used and avoid using proprietary encryption protocols. Ensuring the message payload encryptionEnsuring the secure encryption key handshaking. Ensuring received data integrity verification. [4]"
+                },
+                {
+                  "ruleId": "4.3",
+                  "title": "Insufficient Session-ID Length",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Session identifiers should be at least 128 bits long to prevent brute-force session guessing attacks. A shorter session identifier leaves the application open to brute-force session guessing attacks. If an attacker can guess or steal a session ID, then they may be able to take over the user's session (called session hijacking).  [7]",
+                  "mitigation": "Session identifiers should be at least 128 bits long to prevent brute-force session guessing.  Assume a 128-bit session identifier that provides 64 bits of entropy.  With a very large web site, an attacker might try 10,000 guesses per second with 100,000 valid session identifiers available to be guessed.  Given these assumptions, the expected time for an attacker to successfully guess a valid session identifier is greater than 292 years. A lower bound on the number of valid session identifiers that are available to be guessed is the number of users that are active on a site at any given moment.  However, any users that abandon their sessions without logging out will increase this number.  (This is one of many good reasons to have a short inactive session timeout. )[7]"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -971,15 +1060,53 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
+              "threats": [
+                {
+                  "ruleId": "3.6",
+                  "title": "Hard-coded Cryptographic Key",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The use of a hard-coded cryptographic key tremendously increases the possibility that encrypted data may be recovered.Authentication: If hard-coded cryptographic keys are used, it is almost certain that malicious users will gain access through the account in question.",
+                  "mitigation": "To mitigate against this threat, this practice of hard coding the cryptographic key should be avoided to avoid exposing the cryptographic key to a potential adversary for exploitation [32]"
+                },
+                {
+                  "ruleId": "3.7",
+                  "title": "Faulty Cryptographic Algorithm",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Attempting to create non-standard and non-tested algorithms, using weak algorithms, or applying algorithms incorrectly will pose a high weakness to data that is meant to be secure.",
+                  "mitigation": "To mitigate this threat, a stronger cryptographic algorithm that is widely known to be secure should be used.  Currently, AES is one of the most secure encryption algorithms and is recommended to be used.   [33] [34]Environment (Platform Vulnerabilities)"
+                },
+                {
+                  "ruleId": "4.2",
+                  "title": "Insecure Transport",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The application configuration should ensure that SSL is used for all access-controlled pages.If an application uses SSL to guarantee confidential communication with client browsers, the application configuration should make it impossible to view any access-controlled page without SSL. However, it is not an uncommon problem that the configuration of the application fails to enforce the use of SSL on pages that contain sensitive data.There are three common ways for SSL to be bypassed:A user manually enters the URL and types \"HTTP\" rather than \"HTTPS\".Attackers intentionally send a user to an insecure URL.A programmer erroneously creates a relative link to a page in the application, failing to switch from HTTP to HTTPS. (This is particularly easy to do when the link moves between public and secured areas on a web site.)",
+                  "mitigation": "The first and foremost control that needs to be applied is to check for a lack of transport encryption.  This can be done by:Reviewing network traffic of the device, its mobile application and any cloud connections to determine if any information is passed in clear textReviewing the use of SSL or TLS to ensure it is up to date and properly implementedReviewing the use of any encryption protocols to ensure they are recommended and acceptedIn order to ensure enough transport encryption:Ensuring data is encrypted using protocols such as SSL and TLS while transiting networks. Ensuring other industry standard encryption techniques are utilized to protect data during transport if SSL or TLS are not available. Ensuring only accepted encryption standards are used and avoid using proprietary encryption protocols. Ensuring the message payload encryptionEnsuring the secure encryption key handshaking. Ensuring received data integrity verification. [4]"
+                },
+                {
+                  "ruleId": "4.3",
+                  "title": "Insufficient Session-ID Length",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Session identifiers should be at least 128 bits long to prevent brute-force session guessing attacks. A shorter session identifier leaves the application open to brute-force session guessing attacks. If an attacker can guess or steal a session ID, then they may be able to take over the user's session (called session hijacking).  [7]",
+                  "mitigation": "Session identifiers should be at least 128 bits long to prevent brute-force session guessing.  Assume a 128-bit session identifier that provides 64 bits of entropy.  With a very large web site, an attacker might try 10,000 guesses per second with 100,000 valid session identifiers available to be guessed.  Given these assumptions, the expected time for an attacker to successfully guess a valid session identifier is greater than 292 years. A lower bound on the number of valid session identifiers that are available to be guessed is the number of users that are active on a site at any given moment.  However, any users that abandon their sessions without logging out will increase this number.  (This is one of many good reasons to have a short inactive session timeout. )[7]"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
