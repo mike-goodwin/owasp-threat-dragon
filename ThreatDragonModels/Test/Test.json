@@ -384,34 +384,17 @@
               "angle": 0,
               "id": "0bb2ef48-5f32-4961-8136-9560e5d209f0",
               "z": 1,
-              "hasOpenThreats": true,
-              "threats": [
-                {
-                  "status": "Open",
-                  "severity": "High",
-                  "title": "Test title",
-                  "type": "Spoofing",
-                  "description": "Test Description 2",
-                  "mitigation": "Test Mitigation"
-                },
-                {
-                  "status": "Open",
-                  "severity": "Medium",
-                  "title": "Test Title 2",
-                  "type": "Repudiation",
-                  "description": "Test Description 3",
-                  "mitigation": "Test Mitigation"
-                }
-              ],
+              "hasOpenThreats": false,
+              "threats": [],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasOpenThreats isInScope"
+                  "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Browser"
                 },
                 ".element-text": {
-                  "class": "element-text hasOpenThreats isInScope"
+                  "class": "element-text hasNoOpenThreats isInScope"
                 }
               }
             },
