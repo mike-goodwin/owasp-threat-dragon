@@ -471,6 +471,14 @@
                   "type": "Information disclosure",
                   "description": "An attacker could make a query call on the DB",
                   "mitigation": "Require all queries to be authenticated."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Credential theft",
+                  "type": "Information disclosure",
+                  "description": "An attacker could obtain the DB credentials and use them to make unauthorized queries.",
+                  "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address."
                 }
               ],
               "attrs": {
