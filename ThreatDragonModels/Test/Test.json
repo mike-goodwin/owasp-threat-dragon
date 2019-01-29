@@ -788,6 +788,7 @@
               "z": 11,
               "hasOpenThreats": false,
               "outOfScope": true,
+              "reasonOutOfScope": "The data flow represents a read from the file system",
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
