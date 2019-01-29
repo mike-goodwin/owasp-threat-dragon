@@ -391,7 +391,7 @@
                   "severity": "High",
                   "title": "Test title",
                   "type": "Spoofing",
-                  "description": "Test Description",
+                  "description": "Test Description 2",
                   "mitigation": "Test Mitigation"
                 }
               ],
@@ -1296,10 +1296,6 @@
               "attrs": {}
             }
           ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
         }
       }
     ]
