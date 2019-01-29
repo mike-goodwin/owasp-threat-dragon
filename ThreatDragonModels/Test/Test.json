@@ -393,6 +393,14 @@
                   "type": "Spoofing",
                   "description": "Test Description 2",
                   "mitigation": "Test Mitigation"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Test Title 2",
+                  "type": "Repudiation",
+                  "description": "Test Description 3",
+                  "mitigation": "Test Mitigation"
                 }
               ],
               "attrs": {
