@@ -391,8 +391,8 @@
                   "severity": "Low",
                   "title": "Test Title",
                   "type": "Spoofing",
-                  "description": "Test Description Edited",
-                  "mitigation": "Test Mitigations"
+                  "description": "Test Description Edited Again",
+                  "mitigation": "Test Mitigation"
                 }
               ],
               "attrs": {
@@ -420,7 +420,7 @@
               "angle": 0,
               "id": "255893f4-89e0-4e62-be74-acb98054d4bd",
               "z": 2,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "ruleId": "1.5",
@@ -515,13 +515,13 @@
               ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Web\nApplication"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -1387,10 +1387,6 @@
               "attrs": {}
             }
           ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
         }
       }
     ]
