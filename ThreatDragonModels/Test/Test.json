@@ -391,7 +391,7 @@
                   "severity": "Medium",
                   "title": "Test title",
                   "type": "Spoofing",
-                  "description": "Test Description",
+                  "description": "Test Description2",
                   "mitigation": "Test Mitigation"
                 }
               ],
