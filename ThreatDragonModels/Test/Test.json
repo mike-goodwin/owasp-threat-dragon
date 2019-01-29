@@ -788,6 +788,22 @@
                   "type": "Information disclosure",
                   "description": "The data flow between the Web Application and the Background Worker is not point-to-point and therefore end-to-end secrecy cannot be provided at the transport layer. Messages could be read by an attacker at rest in the Message Queue.",
                   "mitigation": "Use message level encryption for high sensitivity data (e.g. security tokens) in messages."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Message tampering",
+                  "type": "Tampering",
+                  "description": "Messages on the queue could be tampered with, causing incorrect processing by the Background Worker",
+                  "mitigation": "Sign all queue messages at the Web Server. Validate the message signature at the Background Worker and reject any message with a missing or invalid signature. Log any failed messages."
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Fake messages in queue",
+                  "type": "Spoofing",
+                  "description": "An attacker could put a fake message on the queue, causing the Background Worker to do incorrect processing.",
+                  "mitigation": "Restrict access to the queue to the IP address of the Web Server and Background Worker.\n\nImplement authentication on the queue endpoint."
                 }
               ],
               "attrs": {
