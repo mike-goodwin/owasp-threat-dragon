@@ -447,6 +447,7 @@
                   "mitigation": "The Message Queue should be encrypted."
                 }
               ],
+              "storesCredentials": true,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasOpenThreats isInScope"
@@ -491,6 +492,7 @@
                   "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address."
                 }
               ],
+              "isALog": true,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasOpenThreats isInScope"
@@ -527,6 +529,7 @@
                   "mitigation": "Encrypt the DB credentials in the configuration file.\n\nExpire and replace the DB credentials regularly."
                 }
               ],
+              "storesCredentials": true,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasOpenThreats isInScope"
@@ -694,6 +697,7 @@
               ],
               "z": 9,
               "hasOpenThreats": false,
+              "isEncrypted": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -733,6 +737,7 @@
               ],
               "z": 10,
               "hasOpenThreats": false,
+              "isEncrypted": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -907,6 +912,8 @@
               ],
               "z": 14,
               "hasOpenThreats": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -949,6 +956,8 @@
               ],
               "z": 15,
               "hasOpenThreats": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
