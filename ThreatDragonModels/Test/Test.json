@@ -388,7 +388,7 @@
               "threats": [
                 {
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "title": "Test title",
                   "type": "Spoofing",
                   "description": "Test Description2",
