@@ -385,6 +385,16 @@
               "id": "0bb2ef48-5f32-4961-8136-9560e5d209f0",
               "z": 1,
               "hasOpenThreats": false,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Test title",
+                  "type": "Spoofing",
+                  "description": "Test Description",
+                  "mitigation": "Test Mitigation"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
@@ -1157,10 +1167,6 @@
               "attrs": {}
             }
           ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
         }
       }
     ]
