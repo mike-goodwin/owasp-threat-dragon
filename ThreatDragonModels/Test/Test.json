@@ -488,16 +488,26 @@
               "angle": 0,
               "id": "bf482dd6-4dc7-4ae4-89f7-9233969fb177",
               "z": 5,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Accessing DB credentials",
+                  "type": "Information disclosure",
+                  "description": "The Background Worker configuration stores the credentials used by the worker to access the DB. An attacker could compromise the Background Worker and get access to the DB credentials.",
+                  "mitigation": "Encrypt the DB credentials in the configuration file.\n\nExpire and replace the DB credentials regularly."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Worker Config"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
