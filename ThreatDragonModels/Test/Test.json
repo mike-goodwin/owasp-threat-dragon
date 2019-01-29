@@ -514,16 +514,26 @@
               "angle": 0,
               "id": "50a179fa-407d-4a00-b775-e67ec4fd48e7",
               "z": 6,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Poison message 1",
+                  "type": "Denial of service",
+                  "description": "An attacker could generate a malicious message that the Background Worker cannot process",
+                  "mitigation": "Implement a poison message queue where messages are places after a fixed number of retries."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Background\nWorker"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
