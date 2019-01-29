@@ -1385,6 +1385,145 @@
               "id": "94860a77-ebda-4eeb-8db2-5fc647917f62",
               "z": 21,
               "attrs": {}
+            },
+            {
+              "type": "tm.SmartWatch",
+              "size": {
+                "width": 80,
+                "height": 80
+              },
+              "position": {
+                "x": 391,
+                "y": 526
+              },
+              "angle": 0,
+              "id": "629ad554-8764-40e1-845d-877d96b7682f",
+              "z": 22,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Test title",
+                  "type": "Spoofing",
+                  "description": "Test Description",
+                  "mitigation": "Test Mitigation"
+                }
+              ],
+              "attrs": {
+                "text": {
+                  "ref-y": 90,
+                  "text": "Smart Watch 21"
+                },
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.MobilePhone",
+              "size": {
+                "width": 80,
+                "height": 80
+              },
+              "position": {
+                "x": 217,
+                "y": 509
+              },
+              "angle": 0,
+              "id": "33f64f7c-e912-4291-a832-2555a0dca2ef",
+              "z": 23,
+              "hasOpenThreats": false,
+              "isEncrypted": false,
+              "hasPasswordPolicy": true,
+              "storesMedicalRecords": true,
+              "inputSanitization": true,
+              "storesPI": true,
+              "attrs": {
+                "text": {
+                  "ref-y": 90,
+                  "text": "Mobile Phone 22"
+                },
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "629ad554-8764-40e1-845d-877d96b7682f"
+              },
+              "target": {
+                "id": "33f64f7c-e912-4291-a832-2555a0dca2ef"
+              },
+              "vertices": [],
+              "id": "5ba87a61-debc-44c7-b170-6d888f10a420",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 23",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 24,
+              "hasOpenThreats": false,
+              "isEncrypted": false,
+              "bluetoothInterface": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "33f64f7c-e912-4291-a832-2555a0dca2ef"
+              },
+              "target": {
+                "id": "255893f4-89e0-4e62-be74-acb98054d4bd"
+              },
+              "vertices": [],
+              "id": "f8e53429-e825-4152-80c9-9623a876a23a",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 24",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 25,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             }
           ]
         },
