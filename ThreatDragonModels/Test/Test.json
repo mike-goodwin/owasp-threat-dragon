@@ -462,16 +462,26 @@
               "angle": 0,
               "id": "11d325c8-b5b7-4ddd-80f2-07c50e9ee901",
               "z": 4,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Unauthorized access",
+                  "type": "Information disclosure",
+                  "description": "An attacker could make a query call on the DB",
+                  "mitigation": "Require all queries to be authenticated."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Database"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
