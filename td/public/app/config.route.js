@@ -115,6 +115,14 @@ function getRoutes() {
                 settings: {
                 }
             }
+        }, {
+            url: '/threatmodel/:organisation/:repo/:branch/:model/diagram/:diagramId/threatReport',
+            config: {
+                title: 'Threat Model Report',
+                templateUrl: 'report/ThreatReport.html',
+                settings: {
+                }
+            }
         }
     ];
 }
