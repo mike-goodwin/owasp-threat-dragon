@@ -712,7 +712,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -727,10 +727,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -766,7 +766,7 @@
                 }
               ],
               "z": 8,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -779,10 +779,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -815,7 +815,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -837,12 +837,13 @@
                   "mitigation": "Validate sessions on the backend by ensuring all session invalidation events are executed on the server side and not just on the mobile app. Add adequate timeout protection to prevent the malicious potential for an unauthorized user to gain access to an existing session and assume the role of that user.  Timeout periods vary accordingly based on the application, but some good guidelines are: 15 minutes for high security apps, 30 minutes for medium security apps, and 1 hour for low security apps. Properly reset cookies during authentication state changes, by destroying sessions on the server side and making sure that the cookies presented as a part of the previous sessions are no longer acceptedIn addition to properly invalidating tokens on the server side during key application events, make sure tokens are generated properly by using well-established and industry standard methods of creating tokens.  Visit the following websites for more details: https://www. pcisecuritystandards. org/documents/Tokenization_Product_Security_Guidelines. pdf and https://tools. ietf. org/html/rfc7519 for JSON Web Token (JWT) and https://www. ietf. org/rfc/rfc6750. txt for Bearer Token Usage[59]"
                 }
               ],
+              "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -875,7 +876,7 @@
                 }
               ],
               "z": 10,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -899,10 +900,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1072,7 +1073,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1115,10 +1116,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1154,7 +1155,7 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1197,10 +1198,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1236,7 +1237,7 @@
                 }
               ],
               "z": 16,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -1249,10 +1250,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1285,7 +1286,7 @@
                 }
               ],
               "z": 17,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -1298,10 +1299,10 @@
               ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1388,145 +1389,6 @@
               "id": "94860a77-ebda-4eeb-8db2-5fc647917f62",
               "z": 21,
               "attrs": {}
-            },
-            {
-              "type": "tm.SmartWatch",
-              "size": {
-                "width": 80,
-                "height": 80
-              },
-              "position": {
-                "x": 391,
-                "y": 526
-              },
-              "angle": 0,
-              "id": "629ad554-8764-40e1-845d-877d96b7682f",
-              "z": 22,
-              "hasOpenThreats": true,
-              "threats": [
-                {
-                  "status": "Open",
-                  "severity": "Medium",
-                  "title": "Test title",
-                  "type": "Spoofing",
-                  "description": "Test Description",
-                  "mitigation": "Test Mitigation"
-                }
-              ],
-              "attrs": {
-                "text": {
-                  "ref-y": 90,
-                  "text": "Smart Watch 21"
-                },
-                ".element-shape": {
-                  "class": "element-shape hasOpenThreats isInScope"
-                },
-                ".element-text": {
-                  "class": "element-text hasOpenThreats isInScope"
-                }
-              }
-            },
-            {
-              "type": "tm.MobilePhone",
-              "size": {
-                "width": 80,
-                "height": 80
-              },
-              "position": {
-                "x": 217,
-                "y": 509
-              },
-              "angle": 0,
-              "id": "33f64f7c-e912-4291-a832-2555a0dca2ef",
-              "z": 23,
-              "hasOpenThreats": false,
-              "isEncrypted": false,
-              "hasPasswordPolicy": true,
-              "storesMedicalRecords": true,
-              "inputSanitization": true,
-              "storesPI": true,
-              "attrs": {
-                "text": {
-                  "ref-y": 90,
-                  "text": "Mobile Phone 22"
-                },
-                ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
-                },
-                ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
-                }
-              }
-            },
-            {
-              "type": "tm.Flow",
-              "smooth": true,
-              "source": {
-                "id": "629ad554-8764-40e1-845d-877d96b7682f"
-              },
-              "target": {
-                "id": "33f64f7c-e912-4291-a832-2555a0dca2ef"
-              },
-              "vertices": [],
-              "id": "5ba87a61-debc-44c7-b170-6d888f10a420",
-              "labels": [
-                {
-                  "position": 0.5,
-                  "attrs": {
-                    "text": {
-                      "text": "flow 23",
-                      "font-weight": "400",
-                      "font-size": "small"
-                    }
-                  }
-                }
-              ],
-              "z": 24,
-              "hasOpenThreats": false,
-              "isEncrypted": false,
-              "bluetoothInterface": true,
-              "attrs": {
-                ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
-                },
-                ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
-                }
-              }
-            },
-            {
-              "type": "tm.Flow",
-              "smooth": true,
-              "source": {
-                "id": "33f64f7c-e912-4291-a832-2555a0dca2ef"
-              },
-              "target": {
-                "id": "255893f4-89e0-4e62-be74-acb98054d4bd"
-              },
-              "vertices": [],
-              "id": "f8e53429-e825-4152-80c9-9623a876a23a",
-              "labels": [
-                {
-                  "position": 0.5,
-                  "attrs": {
-                    "text": {
-                      "text": "flow 24",
-                      "font-weight": "400",
-                      "font-size": "small"
-                    }
-                  }
-                }
-              ],
-              "z": 25,
-              "hasOpenThreats": false,
-              "attrs": {
-                ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
-                },
-                ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
-                }
-              }
             }
           ]
         },
