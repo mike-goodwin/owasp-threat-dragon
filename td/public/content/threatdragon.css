@@ -8996,6 +8996,14 @@ text.hasOpenThreats {
   }
 }
 
+.overflowY {
+  overflow-y: auto;
+}
+
+.padFive {
+  padding: 5px;
+}
+
 .bottom-right-container {
   position: relative;
 }
@@ -9003,6 +9011,12 @@ text.hasOpenThreats {
 .bottom-right {
   position: absolute;
   bottom: 0;
+  right: 0;
+}
+
+.top-right {
+  position: absolute;
+  top: 0;
   right: 0;
 }
 

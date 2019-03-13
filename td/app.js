@@ -11,6 +11,7 @@ try {
 
     //static content
     app.use('/public', express.static(path.join(__dirname, 'public')));
+    app.use('/prismjs', express.static(path.join(__dirname, '../node_modules/owasp-threat-dragon-core/node_modules/prismjs')));
 
     //security headers
     require('./config/securityheaders.config')(app);
