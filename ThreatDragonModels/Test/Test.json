@@ -557,6 +557,7 @@
                   "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
                 }
               ],
+              "isEncryptedProcess": false,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
@@ -1541,6 +1542,33 @@
               "id": "94860a77-ebda-4eeb-8db2-5fc647917f62",
               "z": 21,
               "attrs": {}
+            },
+            {
+              "type": "tm.SmartWatch",
+              "size": {
+                "width": 80,
+                "height": 80
+              },
+              "position": {
+                "x": 330,
+                "y": 6
+              },
+              "angle": 0,
+              "id": "a6c4960a-f486-4651-af2f-4e0b99e650c8",
+              "z": 22,
+              "hasOpenThreats": false,
+              "attrs": {
+                "text": {
+                  "ref-y": 90,
+                  "text": "Smart Watch 21"
+                },
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
             }
           ]
         },
