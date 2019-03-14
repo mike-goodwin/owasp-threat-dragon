@@ -795,7 +795,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "threats": [
                 {
@@ -812,10 +812,10 @@
               "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -862,6 +862,7 @@
                   "mitigation": "Enforce an encrypted connection at the DB server"
                 }
               ],
+              "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -900,7 +901,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "threats": [
                 {
@@ -925,10 +926,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1158,7 +1159,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1202,10 +1203,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1241,7 +1242,7 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1285,10 +1286,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1384,7 +1385,8 @@
                   "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported."
                 }
               ],
-              "isPublicNetwork": true,
+              "isPublicNetwork": false,
+              "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -1491,7 +1493,7 @@
               "angle": 0,
               "id": "a6c4960a-f486-4651-af2f-4e0b99e650c8",
               "z": 22,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "privilegeLevelForSmartWatch": true,
               "threats": [
                 {
@@ -1535,10 +1537,10 @@
                   "text": "Smart Watch 21"
                 },
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -1555,7 +1557,7 @@
               "angle": 0,
               "id": "565c77ed-083c-4911-b631-aeb7e23ac7d6",
               "z": 23,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncryptedPacemaker": false,
               "programmingLanguagePacemaker": false,
               "privilegeLevelForPacemaker": true,
@@ -1601,10 +1603,10 @@
                   "text": "Pacemaker 22"
                 },
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             }
