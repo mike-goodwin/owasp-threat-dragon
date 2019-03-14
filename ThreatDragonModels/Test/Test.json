@@ -795,7 +795,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -812,10 +812,10 @@
               "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -900,7 +900,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -925,10 +925,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1158,7 +1158,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1202,10 +1202,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1492,6 +1492,43 @@
               "id": "a6c4960a-f486-4651-af2f-4e0b99e650c8",
               "z": 22,
               "hasOpenThreats": false,
+              "privilegeLevelForSmartWatch": true,
+              "threats": [
+                {
+                  "ruleId": "1.5",
+                  "title": "Least Privilege Violation",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.When a program calls a privileged function, such as chroot(), it must first acquire root privilege. As soon as the privileged operation has completed, the program should drop root privilege and return to the privilege level of the invoking user.",
+                  "mitigation": "There are several ways to mitigate the least privilege violation:Split an individual components into several components, and assign lower privilege levels to those components [8]. Identify areas in the system which have that elevated privilege and use those  components instead to accomplish the task [8]. Create a separate environment within the system/program where only within that area or environment has an elevated privilege [8]. ",
+                  "references": [
+                    {
+                      "name": "CWE-272: Least Privilege Violation",
+                      "link": "https://cwe.mitre.org/data/definitions/272.html"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "The following code calls chroot() to restrict the application to a subset of the filesystem below APP_HOME in order to prevent an attacker from using the program to gain unauthorized access to files located elsewhere. The code then opens a file specified by the user and processes the contents of the file.",
+                      "postText": "Constraining the process inside the application's home directory before opening any files is a valuable security measure. However, the absence of a call to setuid() with some non-zero value means the application is continuing to operate with unnecessary root privileges. Any successful exploit carried out by an attacker against the application can now result in a privilege escalation attack because any malicious operations will be performed with the privileges of the superuser. If the application drops to the privilege level of a non-root user, the potential for damage is substantially reduced.",
+                      "code": "chroot(APP_HOME);\nchdir(\"/\");\nFILE* data = fopen(argv[1], \"r+\");\n..."
+                    },
+                    {
+                      "language": {
+                        "name": "Markup",
+                        "highlightAlias": "markup"
+                      },
+                      "preText": "This is a test HTML example",
+                      "code": "<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t</head>\n\t<body>\n\t</body>\n</html>"
+                    }
+                  ]
+                }
+              ],
               "attrs": {
                 "text": {
                   "ref-y": 90,
@@ -1519,6 +1556,45 @@
               "id": "565c77ed-083c-4911-b631-aeb7e23ac7d6",
               "z": 23,
               "hasOpenThreats": false,
+              "isEncryptedPacemaker": false,
+              "programmingLanguagePacemaker": false,
+              "privilegeLevelForPacemaker": true,
+              "threats": [
+                {
+                  "ruleId": "1.5",
+                  "title": "Least Privilege Violation",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.When a program calls a privileged function, such as chroot(), it must first acquire root privilege. As soon as the privileged operation has completed, the program should drop root privilege and return to the privilege level of the invoking user.",
+                  "mitigation": "There are several ways to mitigate the least privilege violation:Split an individual components into several components, and assign lower privilege levels to those components [8]. Identify areas in the system which have that elevated privilege and use those  components instead to accomplish the task [8]. Create a separate environment within the system/program where only within that area or environment has an elevated privilege [8]. ",
+                  "references": [
+                    {
+                      "name": "CWE-272: Least Privilege Violation",
+                      "link": "https://cwe.mitre.org/data/definitions/272.html"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "The following code calls chroot() to restrict the application to a subset of the filesystem below APP_HOME in order to prevent an attacker from using the program to gain unauthorized access to files located elsewhere. The code then opens a file specified by the user and processes the contents of the file.",
+                      "postText": "Constraining the process inside the application's home directory before opening any files is a valuable security measure. However, the absence of a call to setuid() with some non-zero value means the application is continuing to operate with unnecessary root privileges. Any successful exploit carried out by an attacker against the application can now result in a privilege escalation attack because any malicious operations will be performed with the privileges of the superuser. If the application drops to the privilege level of a non-root user, the potential for damage is substantially reduced.",
+                      "code": "chroot(APP_HOME);\nchdir(\"/\");\nFILE* data = fopen(argv[1], \"r+\");\n..."
+                    },
+                    {
+                      "language": {
+                        "name": "Markup",
+                        "highlightAlias": "markup"
+                      },
+                      "preText": "This is a test HTML example",
+                      "code": "<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t</head>\n\t<body>\n\t</body>\n</html>"
+                    }
+                  ]
+                }
+              ],
               "attrs": {
                 "text": {
                   "ref-y": 90,
