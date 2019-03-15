@@ -598,7 +598,7 @@
                   "mitigation": "Require all queries to be authenticated."
                 },
                 {
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "title": "Credential theft",
                   "type": "Information disclosure",
