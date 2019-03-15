@@ -14,7 +14,7 @@ function generateIV(cb) {
 
 //primary key is used for encryption
 function getPrimaryKey() {
-    var keys = JSON.parse(process.env.SESSION_ENCRYPTION_KEYS);
+    var keys = JSON.parse('[{"isPrimary": true, "id": 0, "value": ")H@McQfTjWnZr4u7x!A%C*F-JaNdRgUk"}, {"isPrimary": false, "id": 1, "value": ")H@McQfTjWnZr4u7x!A%C*F-JaNdRgUk"}]');
     var primaryKey = keys.find(function(key) { return key.isPrimary; });
 
     if (!primaryKey) {
@@ -28,7 +28,7 @@ function getPrimaryKey() {
 
 //other keys can be used for decryption to support key expiry
 function getKeyById(id) {
-    var keys = JSON.parse(process.env.SESSION_ENCRYPTION_KEYS);
+    var keys = JSON.parse('[{"isPrimary": true, "id": 0, "value": ")H@McQfTjWnZr4u7x!A%C*F-JaNdRgUk"}, {"isPrimary": false, "id": 1, "value": ")H@McQfTjWnZr4u7x!A%C*F-JaNdRgUk"}]');
     var key = keys.find(function(key) { return key.id == id; });
 
     if (!key) {

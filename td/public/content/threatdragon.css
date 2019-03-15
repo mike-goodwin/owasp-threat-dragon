@@ -9141,6 +9141,25 @@ text.hasOpenThreats {
   }
 }
 
+.trelloLogo {
+  float: right;
+  height: 80%;
+  width: auto;
+  max-height: 60px;
+}
+
+.tab button.downloadButton {
+  float: right;
+  color: white;
+  background-color: dodgerblue;
+  border-radius: 15%;
+  height: 80%;
+}
+
+.tab button:hover.downloadButton {
+  background-color: royalblue;
+}
+
 /* ==== editable-form ==== */
 
 /* class for single editable element */
