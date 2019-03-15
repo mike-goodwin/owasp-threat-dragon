@@ -390,6 +390,13 @@
               "hasOpenThreats": false,
               "threats": [],
               "isEncryptedActor": false,
+              "providesAuthenticationActor": false,
+              "clientEHealthDevice": false,
+              "mobileDevice": false,
+              "desktopDevice": false,
+              "storesHealthDataLocally": false,
+              "forwardsHealthDataCloud": false,
+              "privilegeLevelForActor": false,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
@@ -624,7 +631,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -641,10 +648,10 @@
               "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -680,7 +687,7 @@
                 }
               ],
               "z": 8,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -694,10 +701,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -730,7 +737,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -760,10 +767,10 @@
               "usesTLS": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -993,7 +1000,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1037,10 +1044,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1076,7 +1083,7 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1120,10 +1127,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1208,7 +1215,7 @@
                 }
               ],
               "z": 17,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -1223,10 +1230,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1783,6 +1790,32 @@
                 },
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 32,
+                "y": 270
+              },
+              "angle": 0,
+              "id": "0fc828a5-7f57-4991-9241-72eb96e8179c",
+              "z": 25,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "actor 24"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
