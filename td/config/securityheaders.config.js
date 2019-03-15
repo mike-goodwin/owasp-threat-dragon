@@ -17,7 +17,7 @@ var securityHeaders = function (app, forceSecure) {
         directives: {
             defaultSrc: ["'none'"],
             scriptSrc: ["'self'", "'unsafe-eval'"], //needed for lodash and nools
-            connectSrc: ["'self'"],
+            connectSrc: ["'self'", 'https://api.trello.com/.*', 'https://api.trello.com'],
             styleSrc: ["'self'", 'http://fonts.googleapis.com', 'https://fonts.googleapis.com', "'unsafe-inline'"], //needed for jquery
             imgSrc: ["'self'", 'data:'],
             fontSrc: ["'self'", 'http://fonts.gstatic.com', 'https://fonts.gstatic.com', 'data:'],
