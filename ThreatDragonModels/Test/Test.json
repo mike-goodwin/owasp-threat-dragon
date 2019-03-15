@@ -387,7 +387,7 @@
               "angle": 0,
               "id": "0bb2ef48-5f32-4961-8136-9560e5d209f0",
               "z": 1,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "ruleId": "1.6",
@@ -417,13 +417,13 @@
               "isEncryptedActor": false,
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Browser"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -440,16 +440,25 @@
               "angle": 0,
               "id": "255893f4-89e0-4e62-be74-acb98054d4bd",
               "z": 2,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
-                  "ruleId": "2.1",
-                  "title": "Double Free Error",
+                  "ruleId": "2.6",
+                  "title": "Portability",
                   "type": "Tampering",
                   "status": "Open",
-                  "severity": "High",
-                  "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
-                  "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
+                  "severity": "Low",
+                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
+                  "mitigation": "None for now.  COME BACK"
+                },
+                {
+                  "ruleId": "2.7",
+                  "title": "Undefined Behavior",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
+                  "mitigation": "None for now.  COME BACK"
                 },
                 {
                   "ruleId": "2.2",
@@ -461,15 +470,6 @@
                   "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
                 },
                 {
-                  "ruleId": "2.3",
-                  "title": "Memory Leak",
-                  "type": "Denial of service",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
-                  "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
-                },
-                {
                   "ruleId": "2.4",
                   "title": "Null Dereference",
                   "type": "Denial of service",
@@ -477,15 +477,6 @@
                   "severity": "Medium",
                   "description": "The program can potentially dereference a null pointer, thereby raising a NullPointerException. Null pointer errors are usually the result of one or more programmer assumptions being violated. Most null pointer issues result in general software reliability problems, but if an attacker can intentionally trigger a null pointer dereference, the attacker might be able to use the resulting exception to bypass security logic or to cause the application to reveal debugging information that will be valuable in planning subsequent attacks.A null-pointer dereference takes place when a pointer with a value of NULL is used as though it pointed to a valid memory area.Null-pointer dereferences, while common, can generally be found and corrected in a simple way. They will always result in the crash of the process, unless exception handling (on some platforms) is invoked, and even then, little can be done to salvage the process.",
                   "mitigation": "To mitigate this threat, if possible, this vulnerability would be prevented, if the programming language that was used to program the software did not use pointers.  Another mitigation suggestion is to check to see if the pointers are referenced correctly prior to their use [14]. "
-                },
-                {
-                  "ruleId": "2.6",
-                  "title": "Portability",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
-                  "mitigation": "None for now.  COME BACK"
                 },
                 {
                   "ruleId": "2.9",
@@ -506,15 +497,6 @@
                   "mitigation": "To mitigate this threat, it is recommended to use a POST method, as those parameters that are passed in through the URL are not saved, and therefore cannot be exposed.  [28]"
                 },
                 {
-                  "ruleId": "2.7",
-                  "title": "Undefined Behavior",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
-                  "mitigation": "None for now.  COME BACK"
-                },
-                {
                   "ruleId": "2.8",
                   "title": "Unreleased Resource",
                   "type": "Denial of service",
@@ -522,19 +504,37 @@
                   "severity": "Medium",
                   "description": "Most unreleased resource issues result in general software reliability problems, but if an attacker can intentionally trigger a resource leak, the attacker might be able to launch a denial of service attack by depleting the resource pool.Resource leaks have at least two common causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for releasing the resource.",
                   "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
+                },
+                {
+                  "ruleId": "2.1",
+                  "title": "Double Free Error",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
+                  "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
+                },
+                {
+                  "ruleId": "2.3",
+                  "title": "Memory Leak",
+                  "type": "Denial of service",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
+                  "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
                 }
               ],
               "isEncryptedProcess": false,
               "programmingLanguageProcess": false,
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Web\nApplication"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -670,16 +670,25 @@
               "angle": 0,
               "id": "50a179fa-407d-4a00-b775-e67ec4fd48e7",
               "z": 6,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
-                  "ruleId": "2.1",
-                  "title": "Double Free Error",
+                  "ruleId": "2.6",
+                  "title": "Portability",
                   "type": "Tampering",
                   "status": "Open",
-                  "severity": "High",
-                  "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
-                  "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
+                  "severity": "Low",
+                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
+                  "mitigation": "None for now.  COME BACK"
+                },
+                {
+                  "ruleId": "2.7",
+                  "title": "Undefined Behavior",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
+                  "mitigation": "None for now.  COME BACK"
                 },
                 {
                   "ruleId": "2.2",
@@ -691,15 +700,6 @@
                   "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
                 },
                 {
-                  "ruleId": "2.3",
-                  "title": "Memory Leak",
-                  "type": "Denial of service",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
-                  "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
-                },
-                {
                   "ruleId": "2.4",
                   "title": "Null Dereference",
                   "type": "Denial of service",
@@ -707,15 +707,6 @@
                   "severity": "Medium",
                   "description": "The program can potentially dereference a null pointer, thereby raising a NullPointerException. Null pointer errors are usually the result of one or more programmer assumptions being violated. Most null pointer issues result in general software reliability problems, but if an attacker can intentionally trigger a null pointer dereference, the attacker might be able to use the resulting exception to bypass security logic or to cause the application to reveal debugging information that will be valuable in planning subsequent attacks.A null-pointer dereference takes place when a pointer with a value of NULL is used as though it pointed to a valid memory area.Null-pointer dereferences, while common, can generally be found and corrected in a simple way. They will always result in the crash of the process, unless exception handling (on some platforms) is invoked, and even then, little can be done to salvage the process.",
                   "mitigation": "To mitigate this threat, if possible, this vulnerability would be prevented, if the programming language that was used to program the software did not use pointers.  Another mitigation suggestion is to check to see if the pointers are referenced correctly prior to their use [14]. "
-                },
-                {
-                  "ruleId": "2.6",
-                  "title": "Portability",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
-                  "mitigation": "None for now.  COME BACK"
                 },
                 {
                   "ruleId": "2.9",
@@ -736,15 +727,6 @@
                   "mitigation": "To mitigate this threat, it is recommended to use a POST method, as those parameters that are passed in through the URL are not saved, and therefore cannot be exposed.  [28]"
                 },
                 {
-                  "ruleId": "2.7",
-                  "title": "Undefined Behavior",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
-                  "mitigation": "None for now.  COME BACK"
-                },
-                {
                   "ruleId": "2.8",
                   "title": "Unreleased Resource",
                   "type": "Denial of service",
@@ -752,18 +734,36 @@
                   "severity": "Medium",
                   "description": "Most unreleased resource issues result in general software reliability problems, but if an attacker can intentionally trigger a resource leak, the attacker might be able to launch a denial of service attack by depleting the resource pool.Resource leaks have at least two common causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for releasing the resource.",
                   "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
+                },
+                {
+                  "ruleId": "2.1",
+                  "title": "Double Free Error",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
+                  "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
+                },
+                {
+                  "ruleId": "2.3",
+                  "title": "Memory Leak",
+                  "type": "Denial of service",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
+                  "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
                 }
               ],
               "isEncryptedProcess": false,
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Background\nWorker"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -796,7 +796,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "threats": [
                 {
@@ -813,10 +813,10 @@
               "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -852,7 +852,7 @@
                 }
               ],
               "z": 8,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "status": "Open",
@@ -866,10 +866,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -902,7 +902,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "threats": [
                 {
@@ -927,10 +927,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1093,11 +1093,11 @@
               "threats": [
                 {
                   "status": "Open",
-                  "severity": "High",
-                  "title": "Fake messages in queue",
-                  "type": "Spoofing",
-                  "description": "An attacker could put a fake message on the queue, causing the Background Worker to do incorrect processing.",
-                  "mitigation": "Restrict access to the queue to the IP address of the Web Server and Background Worker.\n\nImplement authentication on the queue endpoint."
+                  "severity": "Low",
+                  "title": "Message Secrecy",
+                  "type": "Information disclosure",
+                  "description": "The data flow between the Web Application and the Background Worker is not point-to-point and therefore end-to-end secrecy cannot be provided at the transport layer. Messages could be read by an attacker at rest in the Message Queue.",
+                  "mitigation": "Use message level encryption for high sensitivity data (e.g. security tokens) in messages."
                 },
                 {
                   "status": "Open",
@@ -1109,11 +1109,11 @@
                 },
                 {
                   "status": "Open",
-                  "severity": "Low",
-                  "title": "Message Secrecy",
-                  "type": "Information disclosure",
-                  "description": "The data flow between the Web Application and the Background Worker is not point-to-point and therefore end-to-end secrecy cannot be provided at the transport layer. Messages could be read by an attacker at rest in the Message Queue.",
-                  "mitigation": "Use message level encryption for high sensitivity data (e.g. security tokens) in messages."
+                  "severity": "High",
+                  "title": "Fake messages in queue",
+                  "type": "Spoofing",
+                  "description": "An attacker could put a fake message on the queue, causing the Background Worker to do incorrect processing.",
+                  "mitigation": "Restrict access to the queue to the IP address of the Web Server and Background Worker.\n\nImplement authentication on the queue endpoint."
                 }
               ],
               "attrs": {
@@ -1160,7 +1160,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1204,10 +1204,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1243,7 +1243,7 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1287,10 +1287,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1375,7 +1375,7 @@
                 }
               ],
               "z": 17,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "status": "Open",
@@ -1390,10 +1390,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1629,6 +1629,16 @@
               "programmingLanguageLaptop": false,
               "isALogLaptop": true,
               "storesCredentialsLaptop": true,
+              "threats": [
+                {
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "title": "Test title",
+                  "type": [
+                    "Spoofing"
+                  ]
+                }
+              ],
               "attrs": {
                 "text": {
                   "ref-y": 90,
@@ -1643,10 +1653,6 @@
               }
             }
           ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
         }
       }
     ]
