@@ -796,7 +796,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "threats": [
                 {
@@ -813,10 +813,10 @@
               "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -852,7 +852,7 @@
                 }
               ],
               "z": 8,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "status": "Open",
@@ -866,10 +866,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -902,7 +902,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "threats": [
                 {
@@ -927,10 +927,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1160,7 +1160,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1204,10 +1204,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1243,7 +1243,7 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1287,10 +1287,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -1375,7 +1375,7 @@
                 }
               ],
               "z": 17,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "threats": [
                 {
                   "status": "Open",
@@ -1390,10 +1390,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
