@@ -796,7 +796,7 @@
                 }
               ],
               "z": 7,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -813,10 +813,10 @@
               "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -852,7 +852,7 @@
                 }
               ],
               "z": 8,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -866,10 +866,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -902,7 +902,7 @@
                 }
               ],
               "z": 9,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "threats": [
                 {
@@ -927,10 +927,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1160,7 +1160,7 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1204,10 +1204,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1243,7 +1243,7 @@
                 }
               ],
               "z": 15,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "threats": [
@@ -1287,10 +1287,10 @@
               "isEncryptedFlow": false,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1375,7 +1375,7 @@
                 }
               ],
               "z": 17,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "status": "Open",
@@ -1390,10 +1390,10 @@
               "isEncryptedFlow": true,
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasOpenThreats isInScope"
+                  "class": "marker-target hasNoOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasOpenThreats isInScope"
+                  "class": "connection hasNoOpenThreats isInScope"
                 }
               }
             },
@@ -1558,7 +1558,7 @@
               "angle": 0,
               "id": "565c77ed-083c-4911-b631-aeb7e23ac7d6",
               "z": 23,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isEncryptedPacemaker": false,
               "programmingLanguagePacemaker": false,
               "privilegeLevelForPacemaker": true,
@@ -1596,6 +1596,310 @@
                       "code": "<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t</head>\n\t<body>\n\t</body>\n</html>"
                     }
                   ]
+                },
+                {
+                  "ruleId": "0.2",
+                  "title": "Compliance in the Collection and Storage of Electronic Health Records",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Depending on the nation and region of subject data collection and storage(local or remote), specific operating rules may apply.For example: In the storage of electronic health records in Canada, specificrules and legislation are put into place varying by province/territory andcontinuously change over time. The legislation is written through discussionof principles of consent to collection, limited use, security safeguards, andpatient participation.",
+                  "mitigation": "Legal council is required when defining User Agreements and whenengineering specific rules of collection or storage to ensure all definedstandards and criterion are met for the region(s) of operation.",
+                  "references": []
+                },
+                {
+                  "ruleId": "1.5",
+                  "title": "Least Privilege Violation",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The elevated privilege level required to perform operations such as chroot()should be dropped immediately after the operation is performed.When a program calls a privileged function, such as chroot(), it must firstacquire root privilege. As soon as the privileged operation has completed,the program should drop root privilege and return to the privilege level ofthe invoking user.",
+                  "mitigation": "There are several ways to mitigate the least privilege violation:Split an individual components into several components, and assignlower privilege levels to those components [8].Identify areas in the system which have that elevated privilege anduse those  components instead to accomplish the task [8].Create a separate environment within the system/program whereonly within that area or environment has an elevated privilege [8].",
+                  "references": [
+                    {
+                      "name": "CWE-272: Least Privilege Violation",
+                      "link": "https://cwe.mitre.org/data/definitions/272.html"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "The following example demonstrates the weakness.",
+                      "code": "setuid(0);\n// Do some important stuff \nsetuid(old_uid);\n// Do some non privileged stuff."
+                    },
+                    {
+                      "language": {
+                        "name": "Java",
+                        "highlightAlias": "java"
+                      },
+                      "preText": "The following code calls chroot() to restrict the application to a subset of the filesystem below APP_HOME in order to prevent an attacker from using the program to gain unauthorized access to files located elsewhere. The code then opens a file specified by the user and processes the contents of the file.",
+                      "postText": "Constraining the process inside the application's home directory before opening any files is a valuable security measure. However, the absence of a call to setuid() with some non-zero value means the application is continuing to operate with unnecessary root privileges. Any successful exploit carried out by an attacker against the application can now result in a privilege escalation attack because any malicious operations will be performed with the privileges of the superuser. If the application drops to the privilege level of a non-root user, the potential for damage is substantially reduced.",
+                      "code": "chroot(APP_HOME);\nchdir(\"/\");\nFILE* data = fopen(argv[1], \"r+\");\n..."
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.4",
+                  "title": "Incorrect Privilege Assignment",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A product incorrectly assigns a privilege to aparticular actor, creating an unintended sphere ofcontrol for that actor [87].",
+                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels. [87]",
+                  "references": [
+                    {
+                      "name": "CWE-266: Incorrect Privilege Assignment",
+                      "link": "https://cwe.mitre.org/data/definitions/266.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.8",
+                  "title": "Privilege Context Switching Error",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The software does not properly manage privilegeswhile it is switching between different contexts thathave different privileges or spheres of control [91].",
+                  "mitigation": "To mitigate this threat, three techniques arepossible counter measures to properly manageprivileges in different contexts. There should bespecific trust zones in the system, the least privilegeprinciple should be in effect where the access rightsof each user are given the minimum privilege levelto do their task as well, privileges should beseparated where multiple conditions need to bemet to access [91].",
+                  "references": [
+                    {
+                      "name": "CWE-270: Privilege Context Switching Error",
+                      "link": "https://cwe.mitre.org/data/definitions/270.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.9",
+                  "title": "Privilege Dropping or Lowering Errors",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The software does not drop privileges beforepassing control of a resource to an actor that doesnot have those privileges [92].",
+                  "mitigation": "To mitigate this threat, three techniques arepossible counter measures to properly manageprivileges in different contexts. There should bespecific trust zones in the system, the least privilegeprinciple should be in effect where the access rightsof each user are given the minimum privilege levelto do their task as well, privileges should beseparated where multiple conditions need to bemet to access [92].",
+                  "references": [
+                    {
+                      "name": "CWE-271: Privilege Dropping / Lowering Errors",
+                      "link": "https://cwe.mitre.org/data/definitions/271.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.10",
+                  "title": "Improper Check for Dropped Privileges",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The software attempts to drop privileges but doesnot check or incorrectly checks to see if the dropsucceeded [93].",
+                  "mitigation": "To mitigate this threat, there are two techniquesthat can counter against an improper check fordropped privileges. Firstly, the system should bedesigned from the point of view of privilege level,where there are entry points and trust boundariesto interface components of different privilegelevels. Ensure that all functions return a value, andverify that the result is expected [93].",
+                  "references": [
+                    {
+                      "name": "CWE-273: Improper Check for Dropped Privileges",
+                      "link": "https://cwe.mitre.org/data/definitions/273.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.11",
+                  "title": "Incorrect Default Permissions",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The software, upon installation, sets incorrectpermissions for an object that exposes it to anunintended actor [94].",
+                  "mitigation": "To mitigate the threat of default permissions thesettings, management and handling of privilegesshould be carefully managed [94].",
+                  "references": [
+                    {
+                      "name": "CWE-276: Incorrect Default Permissions",
+                      "link": "https://cwe.mitre.org/data/definitions/276.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.12",
+                  "title": "Insecure Inherited Permissions",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "A product defines a set of insecure permissions thatare inherited by objects that are created by theprogram [95].",
+                  "mitigation": "To mitigate this threat, the settings, managementand handling of privileges need to be managedproperly [95].",
+                  "references": [
+                    {
+                      "name": "CWE-277: Insecure Inherited Permissions",
+                      "link": "https://cwe.mitre.org/data/definitions/277.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.13",
+                  "title": "Incorrect Execution-Assigned Permissions",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "While it is executing, the software sets thepermissions of an object in a way that violates theintended permissions that have been specified bythe user [96].",
+                  "mitigation": "To mitigate this threat, the settings, managementand handling of privileges need to be managedproperly [96].",
+                  "references": [
+                    {
+                      "name": "CWE-279: Incorrect Execution-Assigned Permissions",
+                      "link": "https://cwe.mitre.org/data/definitions/279.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.14",
+                  "title": "Improper Handling of Insufficient Permissions orPrivileges",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The application does not handle or incorrectlyhandles when it has insufficient privileges to accessresources or functionality as specified by theirpermissions. This may cause it to follow unexpectedcode paths that may leave the application in aninvalid state [97].",
+                  "mitigation": "To mitigate this threat, there should be areas wherethere are specific permission levels. In addition,verify that if an access to a resource or systemfunctionality is successful or not in all privilegelevels. [97]",
+                  "references": [
+                    {
+                      "name": "CWE-280: Improper Handling of Insufficient Permissions or Privileges",
+                      "link": "https://cwe.mitre.org/data/definitions/280.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.15",
+                  "title": "Improper Ownership Management",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The software assigns the wrong ownership, or doesnot properly verify the ownership, of an object orresource [98].",
+                  "mitigation": "To mitigate this threat, the settings, managementand handling of privilege needs to managedcarefully [98].",
+                  "references": [
+                    {
+                      "name": "CWE-282: Improper Ownership Management ",
+                      "link": "https://cwe.mitre.org/data/definitions/282.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "6.9",
+                  "title": "Unchecked Return Value",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "The software does not check the return value froma method or function, which can prevent it fromdetecting unexpected states and conditions. Twocommon programmer assumptions are \"thisfunction call can never fail\" and \"it doesn'tmatter if this function call fails\". If an attacker canforce the function to fail or otherwise return a valuethat is not expected, then the subsequent programlogic could lead to a vulnerability, because thesoftware is not in a state that the programmerassumes. For example, if the program calls afunction to drop privileges but does not check thereturn code to ensure that privileges weresuccessfully dropped, then the program willcontinue to operate with the higher privileges. [40]",
+                  "mitigation": "To mitigate this threat, three techniques must beapplied to all functions in the given program that isbeing evaluated:Ensure all of the functions that return a value,actually return a value and confirm that the value isexpected.Ensure within each function, that the possible ofreturn values are coveredWithin each function, ensure that there is acheck/default value when there is an error. [40]",
+                  "references": [
+                    {
+                      "name": "CWE-252: Unchecked Return Value",
+                      "link": "https://cwe.mitre.org/data/definitions/252.html"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "Consider the following code segment:",
+                      "postText": "The programmer expects that when fgets() returns, buf will contain a null-terminated string of length 9 or less. But if an I/O error occurs, fgets() will not null-terminate buf. Furthermore, if the end of the file is reached before any characters are read, fgets() returns without writing anything to buf. In both of these situations, fgets() signals that something unusual has happened by returning NULL, but in this code, the warning will not be noticed. The lack of a null terminator in buf can result in a buffer overflow in the subsequent call to strcpy().",
+                      "code": "char buf[10], cp_buf[10];\nfgets(buf, 10, stdin);\nstrcpy(cp_buf, buf);"
+                    },
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "The following code does not check to see if memory allocation succeeded before attempting to use the pointer returned by malloc().",
+                      "postText": "The traditional defense of this coding error is: \"If my program runs out of memory, it will fail. It doesn't matter whether I handle the error or simply allow the program to die with a segmentation fault when it tries to dereference the null pointer.\" This argument ignores three important considerations:\n\nDepending upon the type and size of the application, it may be possible to free memory that is being used elsewhere so that execution can continue.\nIt is impossible for the program to perform a graceful exit if required. If the program is performing an atomic operation, it can leave the system in an inconsistent state.\nThe programmer has lost the opportunity to record diagnostic information. Did the call to malloc() fail because req_size was too large or because there were too many requests being handled at the same time? Or was it caused by a memory leak that has built up over time? Without handling the error, there is no way to know.",
+                      "code": "buf = (char*) malloc(req_size);\nstrncpy(buf, xfer, req_size);"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "7.9",
+                  "title": "Poor Client ",
+                  "type": "Spoofing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "This threat involves entities that can pass untrustedinputs to method calls made within mobile code.These types of issues are not necessarily securityissues in and of themselves but lead to securityvulnerabilities. For example, buffer overflows withinolder versions of Safari (a poor code qualityvulnerability) led to high risk drive-by Jailbreakattacks. Poor code-quality issues are typicallyexploited via malware or phishing scams. Anattacker will typically exploit vulnerabilities in thiscategory by supplying carefully crafted inputs to thevictim. These inputs are passed onto code thatresides within the mobile device where exploitationtakes place. Typical types of attacks will exploitmemory leaks and buffer overflows.[54]",
+                  "mitigation": "To mitigate this threat, the followingcountermeasures should be considered:Consistent coding patterns, standards in anorganizationWrite code that is legible and documentedAny code that requires a buffer, the length of theinput should be checked, and the length should berestricted.Use third party tools to find buffer overflows andmemory leaks.Prioritize to fix any buffer overflows and memoryleaks that are present in the code before moving onto other issues.",
+                  "references": [
+                    {
+                      "name": "Poor ",
+                      "link": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M7-Poor_Code_Quality"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "7.10",
+                  "title": "Security Decisions Via Untrusted Inputs",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "This threat involves entities that can pass untrustedinputs to the sensitive method calls. Examples ofsuch entities include, but are not limited to, users,malware and vulnerable apps  An attacker withaccess to app can intercept intermediate calls andmanipulate results via parameter tampering. [58]",
+                  "mitigation": "To mitigate this threat, avoid usingdepreciated/unsupported methods for eachplatform that the application is being used. As anexample, for iOS, avoid using the handleOpenURLmethod to process URL scheme calls. Find analternative method that is supported by theplatform [58].",
+                  "references": [
+                    {
+                      "name": "Security Decisions via Untrusted Inputs",
+                      "link": "https://www.owasp.org/index.php/Mobile_Top_10_2014-M8"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "8.2",
+                  "title": "Insufficient Logging ",
+                  "type": "Repudiation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "When a security-critical event occurs, the softwareeither does not record the event or omits importantdetails about the event when logging it. [62]",
+                  "mitigation": "To mitigate this threat, there are 2countermeasures that can be implemented. Firstly,logging should be centralized with different levels ofdetails. However, in a production environmentthere should be sufficient logging to allow systemadministrators to see attacks, diagnose and recoverfrom errors. [62]",
+                  "references": [
+                    {
+                      "name": "CWE-778: Insufficient Logging",
+                      "link": "https://cwe.mitre.org/data/definitions/778.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.2",
+                  "title": "Process Control",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Executing commands or loading libraries from anuntrusted source or in an untrusted environmentcan cause an application to execute maliciouscommands (and payloads) on behalf of an attacker[85].",
+                  "mitigation": "To mitigate this threat, libraries and frameworksthat are used must be from a trusted source, wherethese libraries can be relied upon and not bemaliciously used by an adversary. [85]",
+                  "references": [
+                    {
+                      "name": "CWE-114: Process Control",
+                      "link": "https://cwe.mitre.org/data/definitions/114.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.5",
+                  "title": "Privilege Defined With Unsafe Actions",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A particular privilege, role, capability, or right canbe used to perform unsafe actions that were notintended, even when it is assigned to the correctentity [88].",
+                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels [88].",
+                  "references": [
+                    {
+                      "name": "CWE-267: Privilege Defined With Unsafe Actions",
+                      "link": "https://cwe.mitre.org/data/definitions/267.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.6",
+                  "title": "Privilege Chaining",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Two distinct privileges, roles, capabilities, or rightscan be combined in a way that allows an entity toperform unsafe actions that would not be allowedwithout that combination [89].",
+                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels. In addition tothose techniques, privileges should be separatedwhere multiple conditions need to be met to access[89].",
+                  "references": [
+                    {
+                      "name": "CWE-268: Privilege Chaining",
+                      "link": "https://cwe.mitre.org/data/definitions/268.html"
+                    }
+                  ]
                 }
               ],
               "attrs": {
@@ -1604,10 +1908,10 @@
                   "text": "Pacemaker 22"
                 },
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -1653,6 +1957,10 @@
               }
             }
           ]
+        },
+        "size": {
+          "height": 590,
+          "width": 790
         }
       }
     ]
