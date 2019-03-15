@@ -443,42 +443,6 @@
               "hasOpenThreats": true,
               "threats": [
                 {
-                  "ruleId": "2.6",
-                  "title": "Portability",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
-                  "mitigation": "None for now.  COME BACK"
-                },
-                {
-                  "ruleId": "2.7",
-                  "title": "Undefined Behavior",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
-                  "mitigation": "None for now.  COME BACK"
-                },
-                {
-                  "ruleId": "2.2",
-                  "title": "Leftover Debug Code",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
-                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
-                },
-                {
-                  "ruleId": "2.4",
-                  "title": "Null Dereference",
-                  "type": "Denial of service",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "The program can potentially dereference a null pointer, thereby raising a NullPointerException. Null pointer errors are usually the result of one or more programmer assumptions being violated. Most null pointer issues result in general software reliability problems, but if an attacker can intentionally trigger a null pointer dereference, the attacker might be able to use the resulting exception to bypass security logic or to cause the application to reveal debugging information that will be valuable in planning subsequent attacks.A null-pointer dereference takes place when a pointer with a value of NULL is used as though it pointed to a valid memory area.Null-pointer dereferences, while common, can generally be found and corrected in a simple way. They will always result in the crash of the process, unless exception handling (on some platforms) is invoked, and even then, little can be done to salvage the process.",
-                  "mitigation": "To mitigate this threat, if possible, this vulnerability would be prevented, if the programming language that was used to program the software did not use pointers.  Another mitigation suggestion is to check to see if the pointers are referenced correctly prior to their use [14]. "
-                },
-                {
                   "ruleId": "2.9",
                   "title": "Use of Obsolete Methods",
                   "type": "Denial of service",
@@ -486,15 +450,6 @@
                   "severity": "Medium",
                   "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
                   "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
-                },
-                {
-                  "ruleId": "3.1",
-                  "title": "Sensitive Parameters in URL",
-                  "type": "Information disclosure",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "Information exposure through query strings in URL is when sensitive data is passed to parameters in the URL. This allows attackers to obtain sensitive data such as usernames, passwords, tokens (authX), database details, and any other potentially sensitive data. Simply using HTTPS does not resolve this vulnerability. A very common example is in GET requests.",
-                  "mitigation": "To mitigate this threat, it is recommended to use a POST method, as those parameters that are passed in through the URL are not saved, and therefore cannot be exposed.  [28]"
                 },
                 {
                   "ruleId": "2.8",
@@ -506,13 +461,40 @@
                   "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
                 },
                 {
-                  "ruleId": "2.1",
-                  "title": "Double Free Error",
+                  "ruleId": "2.7",
+                  "title": "Undefined Behavior",
                   "type": "Tampering",
                   "status": "Open",
-                  "severity": "High",
-                  "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
-                  "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
+                  "severity": "Low",
+                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
+                  "mitigation": "None for now.  COME BACK"
+                },
+                {
+                  "ruleId": "3.1",
+                  "title": "Sensitive Parameters in URL",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Information exposure through query strings in URL is when sensitive data is passed to parameters in the URL. This allows attackers to obtain sensitive data such as usernames, passwords, tokens (authX), database details, and any other potentially sensitive data. Simply using HTTPS does not resolve this vulnerability. A very common example is in GET requests.",
+                  "mitigation": "To mitigate this threat, it is recommended to use a POST method, as those parameters that are passed in through the URL are not saved, and therefore cannot be exposed.  [28]"
+                },
+                {
+                  "ruleId": "2.6",
+                  "title": "Portability",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
+                  "mitigation": "None for now.  COME BACK"
+                },
+                {
+                  "ruleId": "2.4",
+                  "title": "Null Dereference",
+                  "type": "Denial of service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The program can potentially dereference a null pointer, thereby raising a NullPointerException. Null pointer errors are usually the result of one or more programmer assumptions being violated. Most null pointer issues result in general software reliability problems, but if an attacker can intentionally trigger a null pointer dereference, the attacker might be able to use the resulting exception to bypass security logic or to cause the application to reveal debugging information that will be valuable in planning subsequent attacks.A null-pointer dereference takes place when a pointer with a value of NULL is used as though it pointed to a valid memory area.Null-pointer dereferences, while common, can generally be found and corrected in a simple way. They will always result in the crash of the process, unless exception handling (on some platforms) is invoked, and even then, little can be done to salvage the process.",
+                  "mitigation": "To mitigate this threat, if possible, this vulnerability would be prevented, if the programming language that was used to program the software did not use pointers.  Another mitigation suggestion is to check to see if the pointers are referenced correctly prior to their use [14]. "
                 },
                 {
                   "ruleId": "2.3",
@@ -522,6 +504,24 @@
                   "severity": "High",
                   "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
                   "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
+                },
+                {
+                  "ruleId": "2.2",
+                  "title": "Leftover Debug Code",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
+                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
+                },
+                {
+                  "ruleId": "2.1",
+                  "title": "Double Free Error",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
+                  "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
                 }
               ],
               "isEncryptedProcess": false,
@@ -591,20 +591,20 @@
               "hasOpenThreats": true,
               "threats": [
                 {
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "title": "Credential theft",
-                  "type": "Information disclosure",
-                  "description": "An attacker could obtain the DB credentials and use them to make unauthorized queries.",
-                  "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address."
-                },
-                {
                   "status": "Open",
                   "severity": "Medium",
                   "title": "Unauthorized access",
                   "type": "Information disclosure",
                   "description": "An attacker could make a query call on the DB",
                   "mitigation": "Require all queries to be authenticated."
+                },
+                {
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "title": "Credential theft",
+                  "type": "Information disclosure",
+                  "description": "An attacker could obtain the DB credentials and use them to make unauthorized queries.",
+                  "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address."
                 }
               ],
               "isALog": true,
@@ -673,13 +673,13 @@
               "hasOpenThreats": true,
               "threats": [
                 {
-                  "ruleId": "2.6",
-                  "title": "Portability",
-                  "type": "Tampering",
+                  "ruleId": "2.8",
+                  "title": "Unreleased Resource",
+                  "type": "Denial of service",
                   "status": "Open",
-                  "severity": "Low",
-                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
-                  "mitigation": "None for now.  COME BACK"
+                  "severity": "Medium",
+                  "description": "Most unreleased resource issues result in general software reliability problems, but if an attacker can intentionally trigger a resource leak, the attacker might be able to launch a denial of service attack by depleting the resource pool.Resource leaks have at least two common causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for releasing the resource.",
+                  "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
                 },
                 {
                   "ruleId": "2.7",
@@ -691,13 +691,22 @@
                   "mitigation": "None for now.  COME BACK"
                 },
                 {
-                  "ruleId": "2.2",
-                  "title": "Leftover Debug Code",
-                  "type": "Tampering",
+                  "ruleId": "3.1",
+                  "title": "Sensitive Parameters in URL",
+                  "type": "Information disclosure",
                   "status": "Open",
                   "severity": "Medium",
-                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
-                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
+                  "description": "Information exposure through query strings in URL is when sensitive data is passed to parameters in the URL. This allows attackers to obtain sensitive data such as usernames, passwords, tokens (authX), database details, and any other potentially sensitive data. Simply using HTTPS does not resolve this vulnerability. A very common example is in GET requests.",
+                  "mitigation": "To mitigate this threat, it is recommended to use a POST method, as those parameters that are passed in through the URL are not saved, and therefore cannot be exposed.  [28]"
+                },
+                {
+                  "ruleId": "2.6",
+                  "title": "Portability",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
+                  "mitigation": "None for now.  COME BACK"
                 },
                 {
                   "ruleId": "2.4",
@@ -709,31 +718,22 @@
                   "mitigation": "To mitigate this threat, if possible, this vulnerability would be prevented, if the programming language that was used to program the software did not use pointers.  Another mitigation suggestion is to check to see if the pointers are referenced correctly prior to their use [14]. "
                 },
                 {
-                  "ruleId": "2.9",
-                  "title": "Use of Obsolete Methods",
+                  "ruleId": "2.3",
+                  "title": "Memory Leak",
                   "type": "Denial of service",
                   "status": "Open",
-                  "severity": "Medium",
-                  "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
-                  "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
+                  "severity": "High",
+                  "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
+                  "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
                 },
                 {
-                  "ruleId": "3.1",
-                  "title": "Sensitive Parameters in URL",
-                  "type": "Information disclosure",
+                  "ruleId": "2.2",
+                  "title": "Leftover Debug Code",
+                  "type": "Tampering",
                   "status": "Open",
                   "severity": "Medium",
-                  "description": "Information exposure through query strings in URL is when sensitive data is passed to parameters in the URL. This allows attackers to obtain sensitive data such as usernames, passwords, tokens (authX), database details, and any other potentially sensitive data. Simply using HTTPS does not resolve this vulnerability. A very common example is in GET requests.",
-                  "mitigation": "To mitigate this threat, it is recommended to use a POST method, as those parameters that are passed in through the URL are not saved, and therefore cannot be exposed.  [28]"
-                },
-                {
-                  "ruleId": "2.8",
-                  "title": "Unreleased Resource",
-                  "type": "Denial of service",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "Most unreleased resource issues result in general software reliability problems, but if an attacker can intentionally trigger a resource leak, the attacker might be able to launch a denial of service attack by depleting the resource pool.Resource leaks have at least two common causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for releasing the resource.",
-                  "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
+                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
+                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
                 },
                 {
                   "ruleId": "2.1",
@@ -745,13 +745,13 @@
                   "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
                 },
                 {
-                  "ruleId": "2.3",
-                  "title": "Memory Leak",
+                  "ruleId": "2.9",
+                  "title": "A use of Obsolete Methods",
                   "type": "Denial of service",
                   "status": "Open",
-                  "severity": "High",
-                  "description": "A memory leak is an unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed. The consequences of such an issue depend on the application itself. Consider the following general three cases:Short Lived User-land Application: Little if any noticeable effect. Modern operating system recollects lost memory after program termination.Long Lived User-land Application: Potentially dangerous. These applications continue to waste memory over time, eventually consuming all RAM resources. Leads to abnormal system behavior.Kernel-land Process: Memory leaks in the kernel level lead to serious system stability issues. Kernel memory is very limited compared to user land memory and should be handled cautiously.Memory is allocated but never freed. Memory leaks have two common and sometimes overlapping causes:Error conditions and other exceptional circumstances.Confusion over which part of the program is responsible for freeing the memory.Most memory leaks result in general software reliability problems, but if an attacker can intentionally trigger a memory leak, the attacker might be able to launch a denial of service attack (by crashing the program) or take advantage of other unexpected program behavior resulting from a low memory condition.",
-                  "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
+                  "severity": "Medium",
+                  "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
+                  "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
                 }
               ],
               "isEncryptedProcess": false,
@@ -1093,19 +1093,19 @@
               "threats": [
                 {
                   "status": "Open",
-                  "severity": "Low",
-                  "title": "Message Secrecy",
-                  "type": "Information disclosure",
-                  "description": "The data flow between the Web Application and the Background Worker is not point-to-point and therefore end-to-end secrecy cannot be provided at the transport layer. Messages could be read by an attacker at rest in the Message Queue.",
-                  "mitigation": "Use message level encryption for high sensitivity data (e.g. security tokens) in messages."
-                },
-                {
-                  "status": "Open",
                   "severity": "Medium",
                   "title": "Message tampering",
                   "type": "Tampering",
                   "description": "Messages on the queue could be tampered with, causing incorrect processing by the Background Worker",
                   "mitigation": "Sign all queue messages at the Web Server. Validate the message signature at the Background Worker and reject any message with a missing or invalid signature. Log any failed messages."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "Message Secrecy",
+                  "type": "Information disclosure",
+                  "description": "The data flow between the Web Application and the Background Worker is not point-to-point and therefore end-to-end secrecy cannot be provided at the transport layer. Messages could be read by an attacker at rest in the Message Queue.",
+                  "mitigation": "Use message level encryption for high sensitivity data (e.g. security tokens) in messages."
                 },
                 {
                   "status": "Open",
@@ -1564,6 +1564,146 @@
               "privilegeLevelForPacemaker": true,
               "threats": [
                 {
+                  "ruleId": "6.9",
+                  "title": "Unchecked Return Value",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "The software does not check the return value froma method or function, which can prevent it fromdetecting unexpected states and conditions. Twocommon programmer assumptions are \"thisfunction call can never fail\" and \"it doesn'tmatter if this function call fails\". If an attacker canforce the function to fail or otherwise return a valuethat is not expected, then the subsequent programlogic could lead to a vulnerability, because thesoftware is not in a state that the programmerassumes. For example, if the program calls afunction to drop privileges but does not check thereturn code to ensure that privileges weresuccessfully dropped, then the program willcontinue to operate with the higher privileges. [40]",
+                  "mitigation": "To mitigate this threat, three techniques must beapplied to all functions in the given program that isbeing evaluated:Ensure all of the functions that return a value,actually return a value and confirm that the value isexpected.Ensure within each function, that the possible ofreturn values are coveredWithin each function, ensure that there is acheck/default value when there is an error. [40]",
+                  "references": [
+                    {
+                      "name": "CWE-252: Unchecked Return Value",
+                      "link": "https://cwe.mitre.org/data/definitions/252.html"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "Consider the following code segment:",
+                      "postText": "The programmer expects that when fgets() returns, buf will contain a null-terminated string of length 9 or less. But if an I/O error occurs, fgets() will not null-terminate buf. Furthermore, if the end of the file is reached before any characters are read, fgets() returns without writing anything to buf. In both of these situations, fgets() signals that something unusual has happened by returning NULL, but in this code, the warning will not be noticed. The lack of a null terminator in buf can result in a buffer overflow in the subsequent call to strcpy().",
+                      "code": "char buf[10], cp_buf[10];\nfgets(buf, 10, stdin);\nstrcpy(cp_buf, buf);"
+                    },
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "The following code does not check to see if memory allocation succeeded before attempting to use the pointer returned by malloc().",
+                      "postText": "The traditional defense of this coding error is: \"If my program runs out of memory, it will fail. It doesn't matter whether I handle the error or simply allow the program to die with a segmentation fault when it tries to dereference the null pointer.\" This argument ignores three important considerations:\n\nDepending upon the type and size of the application, it may be possible to free memory that is being used elsewhere so that execution can continue.\nIt is impossible for the program to perform a graceful exit if required. If the program is performing an atomic operation, it can leave the system in an inconsistent state.\nThe programmer has lost the opportunity to record diagnostic information. Did the call to malloc() fail because req_size was too large or because there were too many requests being handled at the same time? Or was it caused by a memory leak that has built up over time? Without handling the error, there is no way to know.",
+                      "code": "buf = (char*) malloc(req_size);\nstrncpy(buf, xfer, req_size);"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "7.10",
+                  "title": "Security Decisions Via Untrusted Inputs",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "This threat involves entities that can pass untrustedinputs to the sensitive method calls. Examples ofsuch entities include, but are not limited to, users,malware and vulnerable apps  An attacker withaccess to app can intercept intermediate calls andmanipulate results via parameter tampering. [58]",
+                  "mitigation": "To mitigate this threat, avoid usingdepreciated/unsupported methods for eachplatform that the application is being used. As anexample, for iOS, avoid using the handleOpenURLmethod to process URL scheme calls. Find analternative method that is supported by theplatform [58].",
+                  "references": [
+                    {
+                      "name": "Security Decisions via Untrusted Inputs",
+                      "link": "https://www.owasp.org/index.php/Mobile_Top_10_2014-M8"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.2",
+                  "title": "Process Control",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Executing commands or loading libraries from anuntrusted source or in an untrusted environmentcan cause an application to execute maliciouscommands (and payloads) on behalf of an attacker[85].",
+                  "mitigation": "To mitigate this threat, libraries and frameworksthat are used must be from a trusted source, wherethese libraries can be relied upon and not bemaliciously used by an adversary. [85]",
+                  "references": [
+                    {
+                      "name": "CWE-114: Process Control",
+                      "link": "https://cwe.mitre.org/data/definitions/114.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.9",
+                  "title": "Privilege Dropping or Lowering Errors",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The software does not drop privileges beforepassing control of a resource to an actor that doesnot have those privileges [92].",
+                  "mitigation": "To mitigate this threat, three techniques arepossible counter measures to properly manageprivileges in different contexts. There should bespecific trust zones in the system, the least privilegeprinciple should be in effect where the access rightsof each user are given the minimum privilege levelto do their task as well, privileges should beseparated where multiple conditions need to bemet to access [92].",
+                  "references": [
+                    {
+                      "name": "CWE-271: Privilege Dropping / Lowering Errors",
+                      "link": "https://cwe.mitre.org/data/definitions/271.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.5",
+                  "title": "Privilege Defined With Unsafe Actions",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A particular privilege, role, capability, or right canbe used to perform unsafe actions that were notintended, even when it is assigned to the correctentity [88].",
+                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels [88].",
+                  "references": [
+                    {
+                      "name": "CWE-267: Privilege Defined With Unsafe Actions",
+                      "link": "https://cwe.mitre.org/data/definitions/267.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.8",
+                  "title": "Privilege Context Switching Error",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The software does not properly manage privilegeswhile it is switching between different contexts thathave different privileges or spheres of control [91].",
+                  "mitigation": "To mitigate this threat, three techniques arepossible counter measures to properly manageprivileges in different contexts. There should bespecific trust zones in the system, the least privilegeprinciple should be in effect where the access rightsof each user are given the minimum privilege levelto do their task as well, privileges should beseparated where multiple conditions need to bemet to access [91].",
+                  "references": [
+                    {
+                      "name": "CWE-270: Privilege Context Switching Error",
+                      "link": "https://cwe.mitre.org/data/definitions/270.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "10.6",
+                  "title": "Privilege Chaining",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Two distinct privileges, roles, capabilities, or rightscan be combined in a way that allows an entity toperform unsafe actions that would not be allowedwithout that combination [89].",
+                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels. In addition tothose techniques, privileges should be separatedwhere multiple conditions need to be met to access[89].",
+                  "references": [
+                    {
+                      "name": "CWE-268: Privilege Chaining",
+                      "link": "https://cwe.mitre.org/data/definitions/268.html"
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "7.9",
+                  "title": "Poor Client ",
+                  "type": "Spoofing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "This threat involves entities that can pass untrustedinputs to method calls made within mobile code.These types of issues are not necessarily securityissues in and of themselves but lead to securityvulnerabilities. For example, buffer overflows withinolder versions of Safari (a poor code qualityvulnerability) led to high risk drive-by Jailbreakattacks. Poor code-quality issues are typicallyexploited via malware or phishing scams. Anattacker will typically exploit vulnerabilities in thiscategory by supplying carefully crafted inputs to thevictim. These inputs are passed onto code thatresides within the mobile device where exploitationtakes place. Typical types of attacks will exploitmemory leaks and buffer overflows.[54]",
+                  "mitigation": "To mitigate this threat, the followingcountermeasures should be considered:Consistent coding patterns, standards in anorganizationWrite code that is legible and documentedAny code that requires a buffer, the length of theinput should be checked, and the length should berestricted.Use third party tools to find buffer overflows andmemory leaks.Prioritize to fix any buffer overflows and memoryleaks that are present in the code before moving onto other issues.",
+                  "references": [
+                    {
+                      "name": "Poor ",
+                      "link": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M7-Poor_Code_Quality"
+                    }
+                  ]
+                },
+                {
                   "ruleId": "1.5",
                   "title": "Least Privilege Violation",
                   "type": "Elevation of privilege",
@@ -1596,16 +1736,6 @@
                       "code": "<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t</head>\n\t<body>\n\t</body>\n</html>"
                     }
                   ]
-                },
-                {
-                  "ruleId": "0.2",
-                  "title": "Compliance in the Collection and Storage of Electronic Health Records",
-                  "type": "Information disclosure",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "Depending on the nation and region of subject data collection and storage(local or remote), specific operating rules may apply.For example: In the storage of electronic health records in Canada, specificrules and legislation are put into place varying by province/territory andcontinuously change over time. The legislation is written through discussionof principles of consent to collection, limited use, security safeguards, andpatient participation.",
-                  "mitigation": "Legal council is required when defining User Agreements and whenengineering specific rules of collection or storage to ensure all definedstandards and criterion are met for the region(s) of operation.",
-                  "references": []
                 },
                 {
                   "ruleId": "1.5",
@@ -1642,77 +1772,17 @@
                   ]
                 },
                 {
-                  "ruleId": "10.4",
-                  "title": "Incorrect Privilege Assignment",
-                  "type": "Elevation of privilege",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "A product incorrectly assigns a privilege to aparticular actor, creating an unintended sphere ofcontrol for that actor [87].",
-                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels. [87]",
-                  "references": [
-                    {
-                      "name": "CWE-266: Incorrect Privilege Assignment",
-                      "link": "https://cwe.mitre.org/data/definitions/266.html"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "10.8",
-                  "title": "Privilege Context Switching Error",
-                  "type": "Elevation of privilege",
+                  "ruleId": "8.2",
+                  "title": "Insufficient Logging ",
+                  "type": "Repudiation",
                   "status": "Open",
                   "severity": "Medium",
-                  "description": "The software does not properly manage privilegeswhile it is switching between different contexts thathave different privileges or spheres of control [91].",
-                  "mitigation": "To mitigate this threat, three techniques arepossible counter measures to properly manageprivileges in different contexts. There should bespecific trust zones in the system, the least privilegeprinciple should be in effect where the access rightsof each user are given the minimum privilege levelto do their task as well, privileges should beseparated where multiple conditions need to bemet to access [91].",
+                  "description": "When a security-critical event occurs, the softwareeither does not record the event or omits importantdetails about the event when logging it. [62]",
+                  "mitigation": "To mitigate this threat, there are 2countermeasures that can be implemented. Firstly,logging should be centralized with different levels ofdetails. However, in a production environmentthere should be sufficient logging to allow systemadministrators to see attacks, diagnose and recoverfrom errors. [62]",
                   "references": [
                     {
-                      "name": "CWE-270: Privilege Context Switching Error",
-                      "link": "https://cwe.mitre.org/data/definitions/270.html"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "10.9",
-                  "title": "Privilege Dropping or Lowering Errors",
-                  "type": "Elevation of privilege",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "The software does not drop privileges beforepassing control of a resource to an actor that doesnot have those privileges [92].",
-                  "mitigation": "To mitigate this threat, three techniques arepossible counter measures to properly manageprivileges in different contexts. There should bespecific trust zones in the system, the least privilegeprinciple should be in effect where the access rightsof each user are given the minimum privilege levelto do their task as well, privileges should beseparated where multiple conditions need to bemet to access [92].",
-                  "references": [
-                    {
-                      "name": "CWE-271: Privilege Dropping / Lowering Errors",
-                      "link": "https://cwe.mitre.org/data/definitions/271.html"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "10.10",
-                  "title": "Improper Check for Dropped Privileges",
-                  "type": "Elevation of privilege",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "The software attempts to drop privileges but doesnot check or incorrectly checks to see if the dropsucceeded [93].",
-                  "mitigation": "To mitigate this threat, there are two techniquesthat can counter against an improper check fordropped privileges. Firstly, the system should bedesigned from the point of view of privilege level,where there are entry points and trust boundariesto interface components of different privilegelevels. Ensure that all functions return a value, andverify that the result is expected [93].",
-                  "references": [
-                    {
-                      "name": "CWE-273: Improper Check for Dropped Privileges",
-                      "link": "https://cwe.mitre.org/data/definitions/273.html"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "10.11",
-                  "title": "Incorrect Default Permissions",
-                  "type": "Elevation of privilege",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "The software, upon installation, sets incorrectpermissions for an object that exposes it to anunintended actor [94].",
-                  "mitigation": "To mitigate the threat of default permissions thesettings, management and handling of privilegesshould be carefully managed [94].",
-                  "references": [
-                    {
-                      "name": "CWE-276: Incorrect Default Permissions",
-                      "link": "https://cwe.mitre.org/data/definitions/276.html"
+                      "name": "CWE-778: Insufficient Logging",
+                      "link": "https://cwe.mitre.org/data/definitions/778.html"
                     }
                   ]
                 },
@@ -1732,6 +1802,21 @@
                   ]
                 },
                 {
+                  "ruleId": "10.4",
+                  "title": "Incorrect Privilege Assignment",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A product incorrectly assigns a privilege to aparticular actor, creating an unintended sphere ofcontrol for that actor [87].",
+                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels. [87]",
+                  "references": [
+                    {
+                      "name": "CWE-266: Incorrect Privilege Assignment",
+                      "link": "https://cwe.mitre.org/data/definitions/266.html"
+                    }
+                  ]
+                },
+                {
                   "ruleId": "10.13",
                   "title": "Incorrect Execution-Assigned Permissions",
                   "type": "Elevation of privilege",
@@ -1747,17 +1832,17 @@
                   ]
                 },
                 {
-                  "ruleId": "10.14",
-                  "title": "Improper Handling of Insufficient Permissions orPrivileges",
+                  "ruleId": "10.11",
+                  "title": "Incorrect Default Permissions",
                   "type": "Elevation of privilege",
                   "status": "Open",
                   "severity": "Medium",
-                  "description": "The application does not handle or incorrectlyhandles when it has insufficient privileges to accessresources or functionality as specified by theirpermissions. This may cause it to follow unexpectedcode paths that may leave the application in aninvalid state [97].",
-                  "mitigation": "To mitigate this threat, there should be areas wherethere are specific permission levels. In addition,verify that if an access to a resource or systemfunctionality is successful or not in all privilegelevels. [97]",
+                  "description": "The software, upon installation, sets incorrectpermissions for an object that exposes it to anunintended actor [94].",
+                  "mitigation": "To mitigate the threat of default permissions thesettings, management and handling of privilegesshould be carefully managed [94].",
                   "references": [
                     {
-                      "name": "CWE-280: Improper Handling of Insufficient Permissions or Privileges",
-                      "link": "https://cwe.mitre.org/data/definitions/280.html"
+                      "name": "CWE-276: Incorrect Default Permissions",
+                      "link": "https://cwe.mitre.org/data/definitions/276.html"
                     }
                   ]
                 },
@@ -1777,129 +1862,44 @@
                   ]
                 },
                 {
-                  "ruleId": "6.9",
-                  "title": "Unchecked Return Value",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "The software does not check the return value froma method or function, which can prevent it fromdetecting unexpected states and conditions. Twocommon programmer assumptions are \"thisfunction call can never fail\" and \"it doesn'tmatter if this function call fails\". If an attacker canforce the function to fail or otherwise return a valuethat is not expected, then the subsequent programlogic could lead to a vulnerability, because thesoftware is not in a state that the programmerassumes. For example, if the program calls afunction to drop privileges but does not check thereturn code to ensure that privileges weresuccessfully dropped, then the program willcontinue to operate with the higher privileges. [40]",
-                  "mitigation": "To mitigate this threat, three techniques must beapplied to all functions in the given program that isbeing evaluated:Ensure all of the functions that return a value,actually return a value and confirm that the value isexpected.Ensure within each function, that the possible ofreturn values are coveredWithin each function, ensure that there is acheck/default value when there is an error. [40]",
-                  "references": [
-                    {
-                      "name": "CWE-252: Unchecked Return Value",
-                      "link": "https://cwe.mitre.org/data/definitions/252.html"
-                    }
-                  ],
-                  "examples": [
-                    {
-                      "language": {
-                        "name": "C",
-                        "highlightAlias": "c"
-                      },
-                      "preText": "Consider the following code segment:",
-                      "postText": "The programmer expects that when fgets() returns, buf will contain a null-terminated string of length 9 or less. But if an I/O error occurs, fgets() will not null-terminate buf. Furthermore, if the end of the file is reached before any characters are read, fgets() returns without writing anything to buf. In both of these situations, fgets() signals that something unusual has happened by returning NULL, but in this code, the warning will not be noticed. The lack of a null terminator in buf can result in a buffer overflow in the subsequent call to strcpy().",
-                      "code": "char buf[10], cp_buf[10];\nfgets(buf, 10, stdin);\nstrcpy(cp_buf, buf);"
-                    },
-                    {
-                      "language": {
-                        "name": "C",
-                        "highlightAlias": "c"
-                      },
-                      "preText": "The following code does not check to see if memory allocation succeeded before attempting to use the pointer returned by malloc().",
-                      "postText": "The traditional defense of this coding error is: \"If my program runs out of memory, it will fail. It doesn't matter whether I handle the error or simply allow the program to die with a segmentation fault when it tries to dereference the null pointer.\" This argument ignores three important considerations:\n\nDepending upon the type and size of the application, it may be possible to free memory that is being used elsewhere so that execution can continue.\nIt is impossible for the program to perform a graceful exit if required. If the program is performing an atomic operation, it can leave the system in an inconsistent state.\nThe programmer has lost the opportunity to record diagnostic information. Did the call to malloc() fail because req_size was too large or because there were too many requests being handled at the same time? Or was it caused by a memory leak that has built up over time? Without handling the error, there is no way to know.",
-                      "code": "buf = (char*) malloc(req_size);\nstrncpy(buf, xfer, req_size);"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "7.9",
-                  "title": "Poor Client ",
-                  "type": "Spoofing",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "This threat involves entities that can pass untrustedinputs to method calls made within mobile code.These types of issues are not necessarily securityissues in and of themselves but lead to securityvulnerabilities. For example, buffer overflows withinolder versions of Safari (a poor code qualityvulnerability) led to high risk drive-by Jailbreakattacks. Poor code-quality issues are typicallyexploited via malware or phishing scams. Anattacker will typically exploit vulnerabilities in thiscategory by supplying carefully crafted inputs to thevictim. These inputs are passed onto code thatresides within the mobile device where exploitationtakes place. Typical types of attacks will exploitmemory leaks and buffer overflows.[54]",
-                  "mitigation": "To mitigate this threat, the followingcountermeasures should be considered:Consistent coding patterns, standards in anorganizationWrite code that is legible and documentedAny code that requires a buffer, the length of theinput should be checked, and the length should berestricted.Use third party tools to find buffer overflows andmemory leaks.Prioritize to fix any buffer overflows and memoryleaks that are present in the code before moving onto other issues.",
-                  "references": [
-                    {
-                      "name": "Poor ",
-                      "link": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M7-Poor_Code_Quality"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "7.10",
-                  "title": "Security Decisions Via Untrusted Inputs",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "This threat involves entities that can pass untrustedinputs to the sensitive method calls. Examples ofsuch entities include, but are not limited to, users,malware and vulnerable apps  An attacker withaccess to app can intercept intermediate calls andmanipulate results via parameter tampering. [58]",
-                  "mitigation": "To mitigate this threat, avoid usingdepreciated/unsupported methods for eachplatform that the application is being used. As anexample, for iOS, avoid using the handleOpenURLmethod to process URL scheme calls. Find analternative method that is supported by theplatform [58].",
-                  "references": [
-                    {
-                      "name": "Security Decisions via Untrusted Inputs",
-                      "link": "https://www.owasp.org/index.php/Mobile_Top_10_2014-M8"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "8.2",
-                  "title": "Insufficient Logging ",
-                  "type": "Repudiation",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "When a security-critical event occurs, the softwareeither does not record the event or omits importantdetails about the event when logging it. [62]",
-                  "mitigation": "To mitigate this threat, there are 2countermeasures that can be implemented. Firstly,logging should be centralized with different levels ofdetails. However, in a production environmentthere should be sufficient logging to allow systemadministrators to see attacks, diagnose and recoverfrom errors. [62]",
-                  "references": [
-                    {
-                      "name": "CWE-778: Insufficient Logging",
-                      "link": "https://cwe.mitre.org/data/definitions/778.html"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "10.2",
-                  "title": "Process Control",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "High",
-                  "description": "Executing commands or loading libraries from anuntrusted source or in an untrusted environmentcan cause an application to execute maliciouscommands (and payloads) on behalf of an attacker[85].",
-                  "mitigation": "To mitigate this threat, libraries and frameworksthat are used must be from a trusted source, wherethese libraries can be relied upon and not bemaliciously used by an adversary. [85]",
-                  "references": [
-                    {
-                      "name": "CWE-114: Process Control",
-                      "link": "https://cwe.mitre.org/data/definitions/114.html"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "10.5",
-                  "title": "Privilege Defined With Unsafe Actions",
+                  "ruleId": "10.14",
+                  "title": "Improper Handling of Insufficient Permissions orPrivileges",
                   "type": "Elevation of privilege",
                   "status": "Open",
-                  "severity": "High",
-                  "description": "A particular privilege, role, capability, or right canbe used to perform unsafe actions that were notintended, even when it is assigned to the correctentity [88].",
-                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels [88].",
+                  "severity": "Medium",
+                  "description": "The application does not handle or incorrectlyhandles when it has insufficient privileges to accessresources or functionality as specified by theirpermissions. This may cause it to follow unexpectedcode paths that may leave the application in aninvalid state [97].",
+                  "mitigation": "To mitigate this threat, there should be areas wherethere are specific permission levels. In addition,verify that if an access to a resource or systemfunctionality is successful or not in all privilegelevels. [97]",
                   "references": [
                     {
-                      "name": "CWE-267: Privilege Defined With Unsafe Actions",
-                      "link": "https://cwe.mitre.org/data/definitions/267.html"
+                      "name": "CWE-280: Improper Handling of Insufficient Permissions or Privileges",
+                      "link": "https://cwe.mitre.org/data/definitions/280.html"
                     }
                   ]
                 },
                 {
-                  "ruleId": "10.6",
-                  "title": "Privilege Chaining",
+                  "ruleId": "10.10",
+                  "title": "Improper Check for Dropped Privileges",
                   "type": "Elevation of privilege",
                   "status": "Open",
-                  "severity": "High",
-                  "description": "Two distinct privileges, roles, capabilities, or rightscan be combined in a way that allows an entity toperform unsafe actions that would not be allowedwithout that combination [89].",
-                  "mitigation": "To mitigate this threat, the settings, managementsand handling of privileges must be managedcarefully. There should be accounts with limitedprivileges if there is a task that needs to be done,with very specific privilege levels. In addition tothose techniques, privileges should be separatedwhere multiple conditions need to be met to access[89].",
+                  "severity": "Medium",
+                  "description": "The software attempts to drop privileges but doesnot check or incorrectly checks to see if the dropsucceeded [93].",
+                  "mitigation": "To mitigate this threat, there are two techniquesthat can counter against an improper check fordropped privileges. Firstly, the system should bedesigned from the point of view of privilege level,where there are entry points and trust boundariesto interface components of different privilegelevels. Ensure that all functions return a value, andverify that the result is expected [93].",
                   "references": [
                     {
-                      "name": "CWE-268: Privilege Chaining",
-                      "link": "https://cwe.mitre.org/data/definitions/268.html"
+                      "name": "CWE-273: Improper Check for Dropped Privileges",
+                      "link": "https://cwe.mitre.org/data/definitions/273.html"
                     }
                   ]
+                },
+                {
+                  "ruleId": "0.2",
+                  "title": "Compliance in the Collection and Storage of Electronic Health Records",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Depending on the nation and region of subject data collection and storage(local or remote), specific operating rules may apply.For example: In the storage of electronic health records in Canada, specificrules and legislation are put into place varying by province/territory andcontinuously change over time. The legislation is written through discussionof principles of consent to collection, limited use, security safeguards, andpatient participation.",
+                  "mitigation": "Legal council is required when defining User Agreements and whenengineering specific rules of collection or storage to ensure all definedstandards and criterion are met for the region(s) of operation.",
+                  "references": []
                 }
               ],
               "attrs": {
@@ -1957,10 +1957,6 @@
               }
             }
           ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
         }
       }
     ]
