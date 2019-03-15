@@ -443,15 +443,6 @@
               "hasOpenThreats": true,
               "threats": [
                 {
-                  "ruleId": "2.9",
-                  "title": "Use of Obsolete Methods",
-                  "type": "Denial of service",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
-                  "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
-                },
-                {
                   "ruleId": "2.8",
                   "title": "Unreleased Resource",
                   "type": "Denial of service",
@@ -522,6 +513,15 @@
                   "severity": "High",
                   "description": "Double free errors occur when free() is called more than once with the same memory address as an argument.Calling free() twice on the same value can lead to memory leak. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted and could allow a malicious user to write values in arbitrary memory spaces. This corruption can cause the program to crash or, in some circumstances, alter the execution flow. By overwriting registers or memory spaces, an attacker can trick the program into executing code of his/her own choosing, often resulting in an interactive shell with elevated permissions.When a buffer is free(), a linked list of free buffers is read to rearrange and combine the chunks of free memory (to be able to allocate larger buffers in the future). These chunks are laid out in a double linked list which points to previous and next chunks. Unlinking an unused buffer (which is what happens when free() is called) could allow an attacker to write arbitrary values in memory; essentially overwriting valuable registers, calling shellcode from its own buffer.",
                   "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
+                },
+                {
+                  "ruleId": "2.9",
+                  "title": "A use of Obsolete Methods",
+                  "type": "Denial of service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
+                  "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
                 }
               ],
               "isEncryptedProcess": false,
@@ -1707,40 +1707,6 @@
                   "ruleId": "1.5",
                   "title": "Least Privilege Violation",
                   "type": "Elevation of privilege",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "description": "The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.When a program calls a privileged function, such as chroot(), it must first acquire root privilege. As soon as the privileged operation has completed, the program should drop root privilege and return to the privilege level of the invoking user.",
-                  "mitigation": "There are several ways to mitigate the least privilege violation:Split an individual components into several components, and assign lower privilege levels to those components [8]. Identify areas in the system which have that elevated privilege and use those  components instead to accomplish the task [8]. Create a separate environment within the system/program where only within that area or environment has an elevated privilege [8]. ",
-                  "references": [
-                    {
-                      "name": "CWE-272: Least Privilege Violation",
-                      "link": "https://cwe.mitre.org/data/definitions/272.html"
-                    }
-                  ],
-                  "examples": [
-                    {
-                      "language": {
-                        "name": "C",
-                        "highlightAlias": "c"
-                      },
-                      "preText": "The following code calls chroot() to restrict the application to a subset of the filesystem below APP_HOME in order to prevent an attacker from using the program to gain unauthorized access to files located elsewhere. The code then opens a file specified by the user and processes the contents of the file.",
-                      "postText": "Constraining the process inside the application's home directory before opening any files is a valuable security measure. However, the absence of a call to setuid() with some non-zero value means the application is continuing to operate with unnecessary root privileges. Any successful exploit carried out by an attacker against the application can now result in a privilege escalation attack because any malicious operations will be performed with the privileges of the superuser. If the application drops to the privilege level of a non-root user, the potential for damage is substantially reduced.",
-                      "code": "chroot(APP_HOME);\nchdir(\"/\");\nFILE* data = fopen(argv[1], \"r+\");\n..."
-                    },
-                    {
-                      "language": {
-                        "name": "Markup",
-                        "highlightAlias": "markup"
-                      },
-                      "preText": "This is a test HTML example",
-                      "code": "<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t</head>\n\t<body>\n\t</body>\n</html>"
-                    }
-                  ]
-                },
-                {
-                  "ruleId": "1.5",
-                  "title": "Least Privilege Violation",
-                  "type": "Elevation of privilege",
                   "status": "Open",
                   "severity": "Medium",
                   "description": "The elevated privilege level required to perform operations such as chroot()should be dropped immediately after the operation is performed.When a program calls a privileged function, such as chroot(), it must firstacquire root privilege. As soon as the privileged operation has completed,the program should drop root privilege and return to the privilege level ofthe invoking user.",
@@ -1768,6 +1734,40 @@
                       "preText": "The following code calls chroot() to restrict the application to a subset of the filesystem below APP_HOME in order to prevent an attacker from using the program to gain unauthorized access to files located elsewhere. The code then opens a file specified by the user and processes the contents of the file.",
                       "postText": "Constraining the process inside the application's home directory before opening any files is a valuable security measure. However, the absence of a call to setuid() with some non-zero value means the application is continuing to operate with unnecessary root privileges. Any successful exploit carried out by an attacker against the application can now result in a privilege escalation attack because any malicious operations will be performed with the privileges of the superuser. If the application drops to the privilege level of a non-root user, the potential for damage is substantially reduced.",
                       "code": "chroot(APP_HOME);\nchdir(\"/\");\nFILE* data = fopen(argv[1], \"r+\");\n..."
+                    }
+                  ]
+                },
+                {
+                  "ruleId": "1.5",
+                  "title": "Least Privilege Violation",
+                  "type": "Elevation of privilege",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "description": "The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.When a program calls a privileged function, such as chroot(), it must first acquire root privilege. As soon as the privileged operation has completed, the program should drop root privilege and return to the privilege level of the invoking user.",
+                  "mitigation": "There are several ways to mitigate the least privilege violation:Split an individual components into several components, and assign lower privilege levels to those components [8]. Identify areas in the system which have that elevated privilege and use those  components instead to accomplish the task [8]. Create a separate environment within the system/program where only within that area or environment has an elevated privilege [8]. ",
+                  "references": [
+                    {
+                      "name": "CWE-272: Least Privilege Violation",
+                      "link": "https://cwe.mitre.org/data/definitions/272.html"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "language": {
+                        "name": "C",
+                        "highlightAlias": "c"
+                      },
+                      "preText": "The following code calls chroot() to restrict the application to a subset of the filesystem below APP_HOME in order to prevent an attacker from using the program to gain unauthorized access to files located elsewhere. The code then opens a file specified by the user and processes the contents of the file.",
+                      "postText": "Constraining the process inside the application's home directory before opening any files is a valuable security measure. However, the absence of a call to setuid() with some non-zero value means the application is continuing to operate with unnecessary root privileges. Any successful exploit carried out by an attacker against the application can now result in a privilege escalation attack because any malicious operations will be performed with the privileges of the superuser. If the application drops to the privilege level of a non-root user, the potential for damage is substantially reduced.",
+                      "code": "chroot(APP_HOME);\nchdir(\"/\");\nFILE* data = fopen(argv[1], \"r+\");\n..."
+                    },
+                    {
+                      "language": {
+                        "name": "Markup",
+                        "highlightAlias": "markup"
+                      },
+                      "preText": "This is a test HTML example",
+                      "code": "<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t</head>\n\t<body>\n\t</body>\n</html>"
                     }
                   ]
                 },
