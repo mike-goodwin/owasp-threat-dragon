@@ -452,15 +452,6 @@
                   "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
                 },
                 {
-                  "ruleId": "2.2",
-                  "title": "Leftover Debug Code",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
-                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
-                },
-                {
                   "ruleId": "2.1",
                   "title": "Double Free Error",
                   "type": "Tampering",
@@ -470,13 +461,13 @@
                   "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
                 },
                 {
-                  "ruleId": "2.6",
-                  "title": "Portability",
+                  "ruleId": "2.2",
+                  "title": "Leftover Debug Code",
                   "type": "Tampering",
                   "status": "Open",
-                  "severity": "Low",
-                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
-                  "mitigation": "None for now.  COME BACK"
+                  "severity": "Medium",
+                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
+                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
                 },
                 {
                   "ruleId": "3.1",
@@ -497,15 +488,6 @@
                   "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
                 },
                 {
-                  "ruleId": "2.7",
-                  "title": "Undefined Behavior",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
-                  "mitigation": "None for now.  COME BACK"
-                },
-                {
                   "ruleId": "2.4",
                   "title": "Null Dereference",
                   "type": "Denial of service",
@@ -522,6 +504,24 @@
                   "severity": "Medium",
                   "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
                   "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
+                },
+                {
+                  "ruleId": "2.6",
+                  "title": "Portability",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
+                  "mitigation": "None for now.  COME BACK"
+                },
+                {
+                  "ruleId": "2.7",
+                  "title": "Undefined Behavior",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
+                  "mitigation": "None for now.  COME BACK"
                 }
               ],
               "isEncryptedProcess": false,
@@ -590,20 +590,20 @@
               "hasOpenThreats": true,
               "threats": [
                 {
-                  "status": "Open",
-                  "severity": "Medium",
-                  "title": "Unauthorized access",
-                  "type": "Information disclosure",
-                  "description": "An attacker could make a query call on the DB",
-                  "mitigation": "Require all queries to be authenticated."
-                },
-                {
                   "status": "Mitigated",
                   "severity": "Medium",
                   "title": "Credential theft",
                   "type": "Information disclosure",
                   "description": "An attacker could obtain the DB credentials and use them to make unauthorized queries.",
                   "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Unauthorized access",
+                  "type": "Information disclosure",
+                  "description": "An attacker could make a query call on the DB",
+                  "mitigation": "Require all queries to be authenticated."
                 }
               ],
               "isALog": true,
@@ -681,15 +681,6 @@
                   "mitigation": "To mitigate that threat, 3rd party tools/software are required to see if this vulnerability exists in the code.  One such tool that can be used in a Unix/Linux environment is a program called Valgrind.  This program will run the desired software program to be checked to check all memory allocation and de-allocation methods are working as intended.  [13]"
                 },
                 {
-                  "ruleId": "2.2",
-                  "title": "Leftover Debug Code",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
-                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
-                },
-                {
                   "ruleId": "2.1",
                   "title": "Double Free Error",
                   "type": "Tampering",
@@ -699,13 +690,13 @@
                   "mitigation": "To mitigate this threat, each allocation should only be freed once.  Once the memory has been allocated, the pointer should be set to NULL to ensure the pointer cannot be freed again.  In complicated error conditions, ensure that clean-up routines represent the state of allocation.  If the language is object oriented, that object destructors delete each allocation of memory one time only [11]. "
                 },
                 {
-                  "ruleId": "2.6",
-                  "title": "Portability",
+                  "ruleId": "2.2",
+                  "title": "Leftover Debug Code",
                   "type": "Tampering",
                   "status": "Open",
-                  "severity": "Low",
-                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
-                  "mitigation": "None for now.  COME BACK"
+                  "severity": "Medium",
+                  "description": "Debug code can create unintended entry points in a deployed web application.A common development practice is to add \"back door\" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. When this sort of debug code is accidentally left in the application, the application is open to unintended modes of interaction. These back-door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.",
+                  "mitigation": "To mitigate this threat, all debug code should be removed prior to delivery of code [12]. "
                 },
                 {
                   "ruleId": "3.1",
@@ -726,15 +717,6 @@
                   "mitigation": "To mitigate this threat, the programming language used to program the desired program, should not allow this threat to occur.  Another suggestion is to free all resources that have been allocated and be consistent in terms of how memory is allocated and de-allocated.  To furthermore mitigate this threat, is to release all the member components of a given object [27]. "
                 },
                 {
-                  "ruleId": "2.7",
-                  "title": "Undefined Behavior",
-                  "type": "Tampering",
-                  "status": "Open",
-                  "severity": "Low",
-                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
-                  "mitigation": "None for now.  COME BACK"
-                },
-                {
                   "ruleId": "2.4",
                   "title": "Null Dereference",
                   "type": "Denial of service",
@@ -751,6 +733,24 @@
                   "severity": "Medium",
                   "description": "The use of deprecated or obsolete functions may indicate neglected code.As programming languages evolve, functions occasionally become obsolete due to:Advances in the languageImproved understanding of how operations should be performed effectively and securelyChanges in the conventions that govern certain operationsFunctions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.Refer to the documentation for this function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality. The remainder of this text discusses general problems that stem from the use of deprecated or obsolete functions.",
                   "mitigation": "To mitigate this threat, the documentation for the program should be referred to, to determine the reason it is deprecated and to determine alternatives to using those methods, which may pose not only a function concern, but also a security concern.  [26]Cryptography"
+                },
+                {
+                  "ruleId": "2.6",
+                  "title": "Portability",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "Functions with inconsistent implementations across operating systems and operating system versions cause portability problems.The behavior of functions in this category varies by operating system, and at times, even by operating system version. Implementation differences can include:Slight differences in the way parameters are interpreted, leading to inconsistent results.Some implementations of the function carry significant security risks.The function might not be defined on all platforms.",
+                  "mitigation": "None for now.  COME BACK"
+                },
+                {
+                  "ruleId": "2.7",
+                  "title": "Undefined Behavior",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "The behavior of this function is undefined unless its control parameter is set to a specific value.The Linux Standard Base Specification 2.0.1 for libc places constraints on the arguments to some internal functions.",
+                  "mitigation": "None for now.  COME BACK"
                 }
               ],
               "isEncryptedProcess": false,
