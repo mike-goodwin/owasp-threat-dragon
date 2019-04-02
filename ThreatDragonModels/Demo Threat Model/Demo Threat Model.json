@@ -13,7 +13,13 @@
         "name": "Albert Moneypenny"
       }
     ],
-    "diagrams": [],
+    "diagrams": [
+      {
+        "title": "Main Request Data Flow",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
     "reviewer": "Jane Smith"
   }
 }
