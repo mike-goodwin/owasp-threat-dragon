@@ -20,7 +20,7 @@
     "test-client-ie": "./node_modules/.bin/karma start --single-run --browsers IE",
     "test-server": "istanbul cover --include-all-sources -x public/** --root ./td/ --dir ./coverage/Server/ ./td.tests/serverspec/support/jasmine-runner.js",
     "test-local": "npm run-script pretest && npm run-script test-client-chrome && npm run-script test-client-ie && npm run-script test-client-phantomjs && npm run-script test-client-firefox && npm run-script test-server",
-    "citest": "./node_modules/.bin/karma start --single-run false --browsers PhantomJS",
+    "citest": "./node_modules/.bin/karma start --single-run false --browsers Firefox",
     "codecov": "./node_modules/.bin/codecov"
   },
   "description": "OWASP Threat Dragon - a free, open source threat modelling tool",
