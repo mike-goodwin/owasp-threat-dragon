@@ -22,7 +22,7 @@
     "citest": "./node_modules/.bin/karma start --single-run false --browsers Firefox",
     "codecov": "./node_modules/.bin/codecov",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect"
   },
   "description": "OWASP Threat Dragon - a free, open source threat modelling tool",
   "author": {
