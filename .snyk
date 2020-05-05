@@ -11,3 +11,28 @@ patch:
   'npm:mime:20170907':
     - owasp-threat-dragon-core > rework-npm-cli > rework > mime:
         patched: '2020-03-15T12:43:59.071Z'
+  SNYK-JS-LODASH-567746:
+    - owasp-threat-dragon-core > jointjs > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - owasp-threat-dragon-core > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - owasp-threat-dragon-core > jointjs > dagre > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - owasp-threat-dragon-core > jointjs > graphlib > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - owasp-threat-dragon-core > jointjs > dagre > graphlib > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - pug-bootstrap > pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - pug-bootstrap > pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
+    - pug-bootstrap > pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2020-05-05T04:05:08.963Z'
